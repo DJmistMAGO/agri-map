@@ -103,7 +103,7 @@
                     <a class="nav-link text-uppercase" href="#contact">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{-- route('login') --}}">Log In</a>
+                    <a class="nav-link text-uppercase" href="{{ route('login') }}">Log In</a>
                 </li>
             </ul>
         </div>
