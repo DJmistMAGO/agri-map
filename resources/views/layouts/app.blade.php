@@ -14,7 +14,8 @@
     <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="{{ asset('assets/aos-master/dist/aos.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/aos-master/dist/aos.js') }}"></script>
 
     {{-- Leaflet --}}
     <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
@@ -41,6 +42,10 @@
         .nav-link {
             font-size: 1.2rem;
             margin-right: 1rem;
+        }
+
+        .nav-item .nav-link:active {
+            color: rgba(232, 225, 24, 0.927) !important;
         }
 
         .nav-item .nav-link:hover {
@@ -72,43 +77,7 @@
     </style>
 </head>
 
-<body id="landing">
-    {{-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark"> --}}
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" data-spy="affix" data-offset-top="100"
-        data-offset-bottom="100" <div class="container-fluid ms-5 me-5">
-        <a class="navbar-brand mb-auto" href="#">
-            <div style="display: flex; align-items: center;">
-                <img src="{{ asset('location.png') }}" alt="" width="30" height="24"
-                    class="d-inline-block align-text-top">
-                <h1 class="text-success m-0"> Agri-<span class="text-warning">Map</span></h1>
-            </div>
-        </a>
-        <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#landingHome">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#soil">Soil Map & Parameters</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#contact">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{ route('login') }}">Log In</a>
-                </li>
-            </ul>
-        </div>
-        </div>
-    </nav>
+<body id="landing" data-spy="scroll" data-target="#navbar">
 
     @section('content')@show
 
@@ -181,7 +150,15 @@
     <script>
         AOS.init();
     </script>
-
+    <script>
+        $(document).ready(function() {
+            mApp.initScrollTop();
+            $('body').scrollspy({
+                target: "#navbar",
+                offset: 50
+            });
+        });
+    </script>
     @stack('scripts')
     <script src="{{ mix('js/app.js') }}"></script>
 </body>
