@@ -4,25 +4,58 @@
 <head>
     <meta charset="utf-8" />
     <title>@yield('title')</title>
-    <meta name="description" content="Login" />
+    <meta name="description" content="Agri-Map" />
+    <link rel="shortcut icon" href="{{ asset('location.png') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="canonical" href="https://url" />
+    <link rel="canonical" href="url" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <link href="{{ asset('assets/css/pages/login/classic/login-4.css') }}" rel="stylesheet" type="text/css" />
+    @stack('links')
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="{{ asset('assets/images/sk.png') }}" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    {{-- Leaflet --}}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
 
+    <style>
+        .aside-menu .menu-nav>.menu-item>.menu-heading .menu-icon, .aside-menu .menu-nav>.menu-item>.menu-link .menu-icon{
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .aside .aside-menu .menu-nav>.menu-item>.menu-link .menu-text{
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-heading .menu-icon, .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-link .menu-icon{
+            color: #fff;
+        }
+
+    </style>
 </head>
 
-<body id="kt_body"
-    class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed page-loading">
-    @yield('body')
-    <script>
-        var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
-    </script>
+<body id="kt_body" class="header-fixed header-mobile-fixed aside-enabled aside-fixed page-loading">
+    @include('partials.header-mobile')
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-row flex-column-fluid page">
+            @include('partials.navigation')
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                @include('partials.header')
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                    <div class="d-flex flex-column-fluid">
+                        <div class="container-fluid">
+                            @section('content') @show
+                        </div>
+                    </div>
+                </div>
+                {{-- @include('partials.footer') --}}
+            </div>
+        </div>
+    </div>
+
     <script>
         var KTAppSettings = {
             "breakpoints": {
@@ -83,10 +116,18 @@
             "font-family": "Poppins"
         };
     </script>
+    <script src="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/custom/login/login-general.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+    @stack('scripts')
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
