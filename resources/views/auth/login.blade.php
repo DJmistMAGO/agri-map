@@ -18,7 +18,7 @@
                     <div class="login-signin" class=""
                         style="background-color: #ffff; padding: 80px 30px; border-radius: 10px; box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);
                     -webkit-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);
-                    -moz-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);">
+                    -moz-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59); border-color: #062f58;  ">
                         <div class="mb-10">
                             <h3 class="" style="color: #062f58;">AgriMap</h3>
                             <div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
