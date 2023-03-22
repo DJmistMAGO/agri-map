@@ -16,13 +16,17 @@ use App\Http\Controllers\SoilParamController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing_page.home');
+Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return view('landing_page.home');
+    });
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param');
+});
