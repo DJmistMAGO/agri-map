@@ -59,7 +59,7 @@
             align-items: center;
             height: 100vh;
             padding-top: 60px;
-            min-height: calc(100vh - 60px);
+            min-height: calc(100vh - 0px);
         }
 
         #mapid {

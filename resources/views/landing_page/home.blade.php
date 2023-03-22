@@ -10,9 +10,8 @@
         <div class="container-fluid ms-5 me-5">
             <a class="navbar-brand mb-auto" href="#">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/7.png') }}" alt=""
-                        class="d-inline-block align-text-top max-h-40px m-0">
-                    {{-- <h1 class="text-success m-0"> Agri-<span class="text-warning">Map</span></h1> --}}
+                     <img src="{{ asset('images/7.png') }}" alt=""
+                    class="d-inline-block align-text-top max-h-40px">
                 </div>
             </a>
             <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
@@ -42,7 +41,9 @@
         </div>
     </nav>
 
-    <section id="landingHome" class="py-5 bg-light">
+    <section id="landingHome" class="py-5" style="background-image: url({{ asset('images/1.jpg');  }}); background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;">
         <div class="container">
             <div class="row align-items-center">
 
