@@ -8,9 +8,9 @@
                 {{-- <h4 class="">Welcome Admin!</h4> --}}
                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2">
 
-                    <span class=" font-weight-bold font-size-base d-none d-md-inline mr-1 text-white">Hi,</span>
+                    <span class=" font-weight-bold font-size-base d-none d-md-inline mr-1 text-black">Hi,</span>
                     <span
-                        class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ auth()->user()->name }}</span>
+                        class="text-black font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ auth()->user()->name }}</span>
                     <span class="symbol symbol-35 symbol-light-success">
                         <span
                             class="symbol-label font-size-h5 font-weight-bold">{{ substr(auth()->user()->name, 0, 1) }}</span>
