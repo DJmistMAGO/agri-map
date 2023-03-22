@@ -1,4 +1,4 @@
-<div id="kt_header" class="header header-fixed">
+<div id="kt_header" class="header header-fixed" style="background-color: #2a9a6a;>
     <div class="container-fluid d-flex align-items-stretch justify-content-between">
         <div></div>
         <div class="topbar">

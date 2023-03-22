@@ -8,19 +8,16 @@
     <div class="d-flex flex-column flex-root">
         <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
             <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat"
-                style="background-color: #062f58;">
+            style="background-image: url('{{ asset('images/0.webp') }}');">
                 <div class="login-form text-center p-7 position-relative overflow-hidden">
-                    <div class="d-flex flex-center">
-                        <a href="#">
-                            <img src="{{ asset('assets/images/sk.png') }}" class="max-h-200px" alt="" />
-                        </a>
-                    </div>
                     <div class="login-signin" class=""
-                        style="background-color: #ffff; padding: 80px 30px; border-radius: 10px; box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);
+                        style="background-color: #ffff; padding: 30px 30px; border-radius: 10px; box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);
                     -webkit-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59);
-                    -moz-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59); border-color: #062f58;  ">
-                        <div class="mb-10">
-                            <h3 class="" style="color: #062f58;">AgriMap</h3>
+                    -moz-box-shadow: 9px 9px 21px -4px rgba(0,0,0,0.59); border: solid 1px #062f58 ;  ">
+                        <div class="mb-5">
+                            <a href="#">
+                                <img src="{{ asset('images/7.png') }}" class="max-h-75px mb-5" alt="" />
+                            </a>
                             <div class="text-muted font-weight-bold">Enter your details to login to your account:</div>
                         </div>
                         <form action="" class="form">

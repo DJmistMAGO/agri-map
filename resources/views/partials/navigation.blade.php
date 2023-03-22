@@ -1,7 +1,7 @@
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
     <div class="brand flex-column-auto" id="kt_brand" style="background-color: #062f58">
         <a href="{{-- route('admin-dashboard') --}}" class="brand-logo text-center">
-            <h2 class="text-white text-center">SSU-BC CLINIC</h2>
+            <img alt="Logo" class="w-200px" src=" {{ asset('images/7.png') }} " />
         </a>
     </div>
     <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
@@ -18,7 +18,7 @@
                 <li class="menu-item my-4 {{-- !request()->routeIs('bookAppointment.index')?:'menu-item-active' --}}" aria-haspopup="true">
                     <a href="{{-- route('bookAppointment.index') --}}" class="menu-link">
                         <i class="menu-icon fas fa-leaf"></i>
-                        <span class="menu-text text-nowrap">Soil Parameters</span>
+                        <span class="menu-text text-nowrap">Soil Parameter</span>
                     </a>
                 </li>
 
