@@ -5,54 +5,58 @@
 @endsection
 
 @section('content')
-{{-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark"> --}}
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" data-spy="affix" data-offset-top="100"
-        data-offset-bottom="100" <div class="container-fluid ms-5 me-5">
-        <a class="navbar-brand mb-auto" href="#">
-            <div style="display: flex; align-items: center;">
-                <img src="{{ asset('images/7.png') }}" alt=""
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" data-spy="affix" data-offset-top="100" data-offset-bottom="100"
+        id="navbar">
+        <div class="container-fluid ms-5 me-5">
+            <a class="navbar-brand mb-auto" href="#">
+                <div style="display: flex; align-items: center;">
+                     <img src="{{ asset('images/7.png') }}" alt=""
                     class="d-inline-block align-text-top max-h-40px">
-                {{-- <h1 class="text-success m-0"> Agri-<span class="text-warning">Map</span></h1> --}}
+                    <h1 class="text-success m-0"> Agri-<span class="text-warning">Map</span></h1>
+                </div>
+            </a>
+            <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#landingHome">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#soil">Soil Map & Parameters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="{{ route('login') }}">Log In</a>
+                    </li>
+                </ul>
             </div>
-        </a>
-        <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#landingHome">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#soil">Soil Map & Parameters</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="#contact">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{ route('login') }}">Log In</a>
-                </li>
-            </ul>
-        </div>
         </div>
     </nav>
 
     <section id="landingHome" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="display-4"><b>Welcome to AGri-Map</b></h1>
+
+                <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
+                    <h1 class="h1">Welcome to AGri-Map</h1>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod bibendum
                         tortor, vel tincidunt quam ullamcorper eu.</p>
                     <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
                 </div>
-                <div class="col-md-6">
-                    <img src="{{ asset('location.png') }}" alt="" class="img-fluid max-h-450px">
+
+                <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
+                    <img src="{{ asset('location.png') }}" alt="" class="img-fluid p-4">
+
                 </div>
             </div>
         </div>
@@ -62,7 +66,7 @@
         <div class="container">
             <h2 class="text-center text-uppercase mb-10 display-3"><b>About Us</b></h2>
             <div class="row">
-                <div class="col-md-4 text-center mt-3">
+                <div class="col-md-4 text-center mt-3" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="card card-custom px-8 py-8" style="height: 360px;">
                         <i class="fa fa-map fa-4x mb-5 text-primary"></i>
                         <h3 class="mb-5 mt-5">Accurate Soil Analysis</h3>
@@ -72,7 +76,7 @@
                             to make informed decisions about their crops and land management practices.</p>
                     </div>
                 </div>
-                <div class="col-md-4 text-center mt-3">
+                <div class="col-md-4 text-center mt-3" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="card card-custom px-8 py-8"style="height: 360px;">
                         <i class="fa fa-wifi fa-4x mb-5 text-warning"></i>
                         <h3 class="mb-5 mt-5">Advanced Technology</h3>
@@ -82,7 +86,7 @@
                             soil properties such as nutrient levels, pH, and moisture content.</p>
                     </div>
                 </div>
-                <div class="col-md-4 text-center mt-3">
+                <div class="col-md-4 text-center mt-3" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="card card-custom px-8 py-8" style="height: 360px; "">
                         <i class="fa fa-leaf fa-4x mb-5 text-success"></i>
                         <h3 class="mb-5 mt-5">Sustainable Agriculture</h3>
@@ -92,6 +96,7 @@
                             improve crop yields. With our soil mapping system, you can take control of your soil health and make
                             data-driven decisions for the future of your farm or land.</p>
                     </div>
+
                 </div>
             </div>
         </div>
