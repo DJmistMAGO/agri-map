@@ -10,4 +10,9 @@ class SoilParamController extends Controller
     {
         return view('modules.soil-param.index');
     }
+
+    public function create()
+    {
+        return view('modules.soil-param.create');
+    }
 }

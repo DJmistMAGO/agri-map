@@ -10,15 +10,14 @@
             <div class="card-header">
                 <div class="card-title">
                     <span class="card-icon">
-                        <i class="  text-primary"></i>
+                        <i class=" fas fa-leaf text-success"></i>
                     </span>
                     <h3 class="card-label">
-                        Card Footer
-                        <small>sub title</small>
+                        Soil Parameter
                     </h3>
                 </div>
                 <div class="card-toolbar">
-                    <a href="#" class="btn btn-sm btn-success font-weight-bold">
+                    <a href="{{ route('soil-param.create') }}" class="btn btn-sm btn-success font-weight-bold">
                         <i class="fas fa-mountain"></i> ADD SOIL PARAMETER
                     </a>
                 </div>
@@ -38,7 +37,20 @@
                         <tbody>
 
                                 <tr>
-                                    <td></td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>test</td>
+                                    <td>
+                                        <a href="{{-- route('soil-param.show',1) --}}" class="btn btn-sm btn-success" title="View details">
+                                            VIEW
+                                        </a>
+                                        <a href="{{-- route('soil-param.edit',1) --}}" class="btn btn-sm btn-primary" title="Edit details">
+                                            EDIT
+                                        </a>
+                                        <a href="{{-- route('soil-param.destroy',1) --}}" class="btn btn-sm btn-danger" title="Delete">
+                                            DELETE
+                                        </a>
                                 </tr>
                         </tbody>
                     </table>
