@@ -8,20 +8,21 @@
         <div id="kt_aside_menu" class="aside-menu" data-menu-vertical="1" data-menu-scroll="1"
             data-menu-dropdown-timeout="500" style="background-color: #0b59a8">
             <ul class="menu-nav">
-                <li class="menu-item my-4 mb-10 {{ !request()->routeIs('dashboard')?:'menu-item-active' }}" aria-haspopup="true">
+                <li class="menu-item my-4 mb-10 {{ !request()->routeIs('dashboard') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
                     <a href="{{ route('dashboard') }}" class="menu-link">
                         <i class="menu-icon
                         fas fa-home"></i>
                         <span class="menu-text">Home</span>
                     </a>
                 </li>
-                <li class="menu-item my-4 {{ !request()->routeIs('soil-param')?:'menu-item-active' }}" aria-haspopup="true">
+                <li class="menu-item my-4 {{ !request()->routeIs('soil-param') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
                     <a href="{{ route('soil-param') }}" class="menu-link">
                         <i class="menu-icon fas fa-leaf"></i>
                         <span class="menu-text text-nowrap">Soil Parameter</span>
                     </a>
                 </li>
-
 
             </ul>
         </div>

@@ -13,7 +13,6 @@
                 <div style="display: flex; align-items: center;">
                      <img src="{{ asset('images/7.png') }}" alt=""
                     class="d-inline-block align-text-top max-h-40px">
-                    <h1 class="text-success m-0"> Agri-<span class="text-warning">Map</span></h1>
                 </div>
             </a>
             <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
@@ -43,19 +42,21 @@
         </div>
     </nav>
 
-    <section id="landingHome" class="py-5 bg-light">
+    <section id="landingHome" class="py-5" style="background-image: url({{ asset('images/1.jpg');  }}); background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;">
         <div class="container">
             <div class="row align-items-center">
-
                 <div class="col-md-6" data-aos="fade-right" data-aos-duration="1500">
-                    <h1 class="h1">Welcome to AGri-Map</h1>
+                    <h1 class="h1">Welcome to</h1>
+                    <h2 class="display-2" style="font-weight: 900;"><span class="" style="color: #4EA258;">AGRI</span><span class="" style="color: #F4BE43;">-Map</span></h2>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod bibendum
                         tortor, vel tincidunt quam ullamcorper eu.</p>
                     <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
                 </div>
 
                 <div class="col-md-6" data-aos="fade-left" data-aos-duration="1500">
-                    <img src="{{ asset('location.png') }}" alt="" class="img-fluid p-4">
+                    {{-- <img src="{{ asset('location.png') }}" alt="" class="" style="" > --}}
 
                 </div>
             </div>

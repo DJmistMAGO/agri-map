@@ -19,7 +19,11 @@
     {{-- Leaflet --}}
     <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
 
+
     <style>
+         [x-cloak] {
+            display: none !important;
+        }
         .aside-menu .menu-nav>.menu-item>.menu-heading .menu-icon, .aside-menu .menu-nav>.menu-item>.menu-link .menu-icon{
             font-size: 2rem;
             color: #fff;
@@ -55,7 +59,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- @include('partials.footer') --}}
             </div>
         </div>
     </div>
