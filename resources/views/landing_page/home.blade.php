@@ -29,7 +29,7 @@
                         <a class="nav-link text-uppercase m-scroll-top" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase m-scroll-top" href="#soil">Soil Map & Parameters</a>
+                        <a class="nav-link text-uppercase m-scroll-top" href="#soil">Map & Soil Parameters</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase m-scroll-top" href="#contact">Contact Us</a>
