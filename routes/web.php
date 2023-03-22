@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SoilParamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param');

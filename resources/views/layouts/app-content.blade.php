@@ -34,6 +34,10 @@
             color: #fff;
         }
 
+        .aside .aside-menu .menu-nav>.menu-item>.menu-link{
+            width: 120px;
+        }
+
     </style>
 </head>
 
