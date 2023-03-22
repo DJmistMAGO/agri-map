@@ -28,6 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param');
+    Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param.index');
     Route::get('/soil-param/create', [SoilParamController::class, 'create'])->name('soil-param.create');
 });

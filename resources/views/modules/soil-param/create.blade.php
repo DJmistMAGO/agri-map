@@ -17,7 +17,7 @@
                     </h3>
                 </div>
                 <div class="card-toolbar">
-                    <a href="{{ route('soil-param') }}" class="btn btn-light-danger font-weight-bolder mr-2">
+                    <a href="{{ route('soil-param.index') }}" class="btn btn-light-danger font-weight-bolder mr-2">
                         CANCEL
                     </a>
                 </div>

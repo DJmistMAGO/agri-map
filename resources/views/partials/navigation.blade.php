@@ -18,7 +18,7 @@
                 </li>
                 <li class="menu-item my-4 {{ !request()->routeIs('soil-param.*') ?: 'menu-item-active' }}"
                     aria-haspopup="true">
-                    <a href="{{ route('soil-param') }}" class="menu-link">
+                    <a href="{{ route('soil-param.index') }}" class="menu-link">
                         <i class="menu-icon fas fa-leaf"></i>
                         <span class="menu-text text-nowrap">Soil Parameter</span>
                     </a>
