@@ -1,6 +1,6 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <a href="">
-        <h3 class="text-white mb-0">SSU-BC CLINIC</h3>
+        <img alt="Logo" class="w-100px" src=" {{ asset('images/7.png') }} " />
     </a>
 
     <div class="d-flex align-items-center">
