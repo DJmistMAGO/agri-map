@@ -16,7 +16,7 @@
                         <span class="menu-text">Home</span>
                     </a>
                 </li>
-                <li class="menu-item my-4 {{ !request()->routeIs('soil-param') ?: 'menu-item-active' }}"
+                <li class="menu-item my-4 {{ !request()->routeIs('soil-param.*') ?: 'menu-item-active' }}"
                     aria-haspopup="true">
                     <a href="{{ route('soil-param.index') }}" class="menu-link">
                         <i class="menu-icon fas fa-leaf"></i>

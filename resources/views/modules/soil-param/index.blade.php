@@ -10,7 +10,7 @@
             <div class="card-header">
                 <div class="card-title">
                     <span class="card-icon">
-                        <i class="  text-primary"></i>
+                        <i class=" fas fa-leaf text-success"></i>
                     </span>
                     <h2 class="card-label"> Soil Parameters </h2>
                 </div>
@@ -36,7 +36,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>
+                                    <a href="{{-- route('soil-param.show',1) --}}" class="btn btn-sm btn-success" title="View details">
+                                        VIEW
+                                    </a>
+                                    <a href="{{-- route('soil-param.edit',1) --}}" class="btn btn-sm btn-primary" title="Edit details">
+                                        EDIT
+                                    </a>
+                                    <a href="{{-- route('soil-param.destroy',1) --}}" class="btn btn-sm btn-danger" title="Delete">
+                                        DELETE
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
