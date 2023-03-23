@@ -19,29 +19,34 @@
     {{-- Leaflet --}}
     <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
 
-
     <style>
-         [x-cloak] {
+        [x-cloak] {
             display: none !important;
         }
-        .aside-menu .menu-nav>.menu-item>.menu-heading .menu-icon, .aside-menu .menu-nav>.menu-item>.menu-link .menu-icon{
+
+        .aside-menu .menu-nav>.menu-item>.menu-heading .menu-icon,
+        .aside-menu .menu-nav>.menu-item>.menu-link .menu-icon {
             font-size: 2rem;
             color: #fff;
         }
 
-        .aside .aside-menu .menu-nav>.menu-item>.menu-link .menu-text{
+        .aside .aside-menu .menu-nav>.menu-item>.menu-link .menu-text {
             font-size: 13px;
             color: #fff;
         }
 
-        .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-heading .menu-icon, .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-link .menu-icon{
+        .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-heading .menu-icon,
+        .aside-menu .menu-nav>.menu-item.menu-item-active>.menu-link .menu-icon {
             color: #fff;
         }
 
-        .aside .aside-menu .menu-nav>.menu-item>.menu-link{
+        .aside .aside-menu .menu-nav>.menu-item>.menu-link {
             width: 120px;
         }
 
+        label {
+            font-weight: bolder !important;
+        }
     </style>
 </head>
 
