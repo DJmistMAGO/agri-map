@@ -1,79 +1,150 @@
 @extends('layouts.app-content')
 
 @section('title')
-    Create | Soil Parameter
+    Soil Parameter | Create
 @endsection
 
 @section('content')
-    <div class="col-md-12">
-        <div class="card card-custom">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="card-icon">
-                        <i class=" fas fa-leaf text-success"></i>
-                    </span>
-                    <h3 class="card-label">
-                        Create Soil Parameter
-                    </h3>
-                </div>
-                <div class="card-toolbar">
-                    <a href="{{ route('soil-param.index') }}" class="btn btn-light-danger font-weight-bolder mr-2">
-                        CANCEL
-                    </a>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label class="form-label ">PH Level</label>
-                        <input type="text" class="form-control" placeholder="Enter Ph" />
+    <form action="{{ route('soil-param.store') }}" method="POST">
+        @csrf
+        <div class="row">
+            <div class="col-md-12">
+                <x-card title="Add Record" :back-url="route('soil-param.index')">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Drag the marker or click on the map to select location</label>
+                                <div id="mapid" style="height: 400px;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Longitude</label>
+                                    <input type="text" class="form-control" name="longitude" id="est_lng" required
+                                        readonly>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Latitude</label>
+                                    <input type="text" class="form-control" name="latitude" id="est_lat" required
+                                        readonly>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Land Type</label>
+                                    <select name="land_type" class="form-control" required>
+                                        <option value="">--Select land type--</option>
+                                        @foreach ($landtype as $ltype)
+                                            <option value="{{ $ltype }}" @selected(old('land_type') == $ltype)>
+                                                {{ $ltype }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Soil Type</label>
+                                    <select name="soil_type" class="form-control" required>
+                                        <option value="">--Select Soil Type--</option>
+                                        @foreach ($soiltype as $stype)
+                                            <option value="{{ $stype }}" @selected(old('soil_type') == $stype)>
+                                                {{ $stype }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Temperature</label>
+                                    <div class="input-group">
+                                        <input type="number" name="soil_temperature" class="form-control"
+                                            placeholder="Temperature" value="{{ old('temperature') }}" required>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">°C</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Soil Moisture</label>
+                                    <select name="soil_moisture" class="form-control" required>
+                                        <option value="">--Select Soil Moisture--</option>
+                                        @foreach ($soil_moisture as $moist)
+                                            <option value="{{ $moist }}" @selected(old('moisture') == $moist)>
+                                                {{ $moist }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Soil pH</label>
+                                    <select name="soil_ph" class="form-control" required>
+                                        <option value="">--Select Soil pH--</option>
+                                        @foreach ($soil_ph as $ph)
+                                            <option value="{{ $ph }}" @selected(old('ph') == $ph)>
+                                                {{ $ph }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                {{-- submit button --}}
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label class="form-label ">Temperature</label>
-                        <input type="text" class="form-control" placeholder="Enter Temperature" />
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="form-label ">Moisture</label>
-                        <input type="text" class="form-control" placeholder="Enter Moisture" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="form-label ">Land Type</label>
-                        <select class="form-control " id="kt_select2_1" name="param">
-                            <option value="">--Please Select--</option>
-                            <option value="1">Agricultural</option>
-                            <option value="2">Forest</option>
-                            <option value="3">Grassland</option>
-                            <option value="4">Wetland</option>
-                            <option value="5">Desert</option>
-                            <option value="6">Urban</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="form-label ">Soil Type</label>
-                        <select class="form-control " id="kt_select2_1" name="param">
-                            <option value="">--Please Select--</option>
-                            <option value="1">Clay</option>
-                            <option value="2">Sandy</option>
-                            <option value="3">Loamy</option>
-                            <option value="4">Silty</option>
-                            <option value="5">Peaty</option>
-                            <option value="6">Chalky</option>
-                            </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="form-label ">Latitude</label>
-                        <input type="text" class="form-control" placeholder="Enter Latitude" />
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="form-label ">Longitude</label>
-                        <input type="text" class="form-control" placeholder="Enter Longitude" />
-                    </div>
-                </div>
+                </x-card>
             </div>
         </div>
-    </div>
+    </form>
 @endsection
+
+@push('scripts')
+    @livewireScripts
+    <script>
+        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 18);
+
+        // add tile layer to map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 18,
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+
+        // add draggable marker to map
+        var marker = L.marker([12.668945714230706, 123.88067528173328], {
+            draggable: true
+        }).addTo(map);
+
+        marker.on('drag', function(e) {
+            var latlng = marker.getLatLng();
+            var lat = latlng.lat;
+            var lng = latlng.lng;
+
+            marker.bindPopup("<b>Your marker location</b><br />Latitude: " + lat + "<br />Longitude: " + lng)
+                .openPopup();
+
+            document.getElementById("est_lat").value = lat;
+            document.getElementById("est_lng").value = lng;
+        });
+
+        // update marker position when map is clicked
+        map.on('click', function(e) {
+            marker.setLatLng(e.latlng);
+            var popLat = e.latlng.lat;
+            var popLng = e.latlng.lng;
+
+            var popup = L.popup()
+                .setLatLng([popLat, popLng])
+                .setContent('<h4 class="text-center text-primary" id="popUp">You\'ve clicked here!</h4>' +
+                    '<h6 style="font-weight: bold;" id="popUp"> Latitude: ' + popLat + '</h6>' +
+                    '<h6 style="font-weight: bold;" id="popUp"> Longitude: ' + popLng + '</h6>')
+                .openOn(map);
+
+            document.getElementById("est_lat").value = popLat;
+            document.getElementById("est_lng").value = popLng;
+        });
+
+        // update input fields with initial marker position
+        document.getElementById("est_lat").value = marker.getLatLng().lat;
+        document.getElementById("est_lng").value = marker.getLatLng().lng;
+    </script>
+@endpush
