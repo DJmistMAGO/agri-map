@@ -4,6 +4,10 @@
     Soil Parameter
 @endsection
 
+@push('styles')
+    @livewireStyles()
+@endpush
+
 @section('content')
     <x-success></x-success>
     <x-errors></x-errors>
@@ -46,15 +50,15 @@
                                     <td>{{ $item->soil_temperature }}</td>
                                     <td>{{ $item->soil_moisture }}</td>
                                     <td>
-                                        <a href="{{-- route('soil-param.show',1) --}}" class="btn btn-sm btn-success" title="View details">
+                                        <a href="{{ route('soil-param.show', $item->id) }}" class="btn btn-sm btn-success"
+                                            title="View details">
                                             VIEW
                                         </a>
-                                        <a href="{{-- route('soil-param.edit',1) --}}" class="btn btn-sm btn-primary" title="Edit details">
+                                        <a href="{{ route('soil-param.edit', $item->id) }}" class="btn btn-sm btn-primary"
+                                            title="Edit details">
                                             EDIT
                                         </a>
-                                        <a href="{{-- route('soil-param.destroy',1) --}}" class="btn btn-sm btn-danger" title="Delete">
-                                            DELETE
-                                        </a>
+                                        @livewire('soil-param.delete', ['soilParam' => $item], key($item->id))
                                     </td>
                                 </tr>
                             @empty
@@ -69,3 +73,8 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @livewireScripts()
+
+@endpush

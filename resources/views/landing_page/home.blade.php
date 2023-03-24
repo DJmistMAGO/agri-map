@@ -10,8 +10,7 @@
         <div class="container-fluid ms-5 me-5">
             <a class="navbar-brand mb-auto" href="#">
                 <div style="display: flex; align-items: center;">
-                     <img src="{{ asset('images/7.png') }}" alt=""
-                    class="d-inline-block align-text-top max-h-40px">
+                    <img src="{{ asset('images/7.png') }}" alt="" class="d-inline-block align-text-top max-h-40px">
                 </div>
             </a>
             <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse"
@@ -28,6 +27,9 @@
                         <a class="nav-link text-uppercase m-scroll-top" href="#about">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#weather">Weather</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-uppercase m-scroll-top" href="#soil">Map & Soil Parameters</a>
                     </li>
                     <li class="nav-item">
@@ -41,7 +43,8 @@
         </div>
     </nav>
 
-    <section id="landingHome" class="py-5" style="background-image: url({{ asset('images/1.jpg');  }}); background-repeat: no-repeat;
+    <section id="landingHome" class="py-5"
+        style="background-image: url({{ asset('images/1.jpg') }}); background-repeat: no-repeat;
     background-position: center;
     background-size: cover;">
         <div class="container">
@@ -102,7 +105,20 @@
                             make
                             data-driven decisions for the future of your farm or land.</p>
                     </div>
+                </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="weather" class="py-5" style="background-color: #062f58;">
+        <div class="weather">
+            <h2 class="text-center text-white text-uppercase mb-10 display-3"><b>Weather</b></h2>
+            <div class="row">
+                <div class="col-md-12 text-center mt-3">
+                    <iframe width="1250" height="450"
+                        src="https://embed.windy.com/embed2.html?lat=12.626&lon=123.912&detailLat=12.686&detailLon=123.907&width=650&height=450&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1"
+                        frameborder="0"></iframe>
                 </div>
             </div>
         </div>
@@ -116,7 +132,8 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="text-center">Soil Parameters</h2>
-                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis arcu et turpis
+                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis arcu et
+                        turpis
                         scelerisque
                         auctor. Curabitur volutpat eget felis id maximus. Donec id velit dolor.</p>
                 </div>

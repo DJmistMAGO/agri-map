@@ -31,4 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/soil-param', [SoilParamController::class, 'index'])->name('soil-param.index');
     Route::get('/soil-param/create', [SoilParamController::class, 'create'])->name('soil-param.create');
     Route::post('/soil-param/store', [SoilParamController::class, 'store'])->name('soil-param.store');
+    Route::get('/soil-param/edit/{soilParam}', [SoilParamController::class, 'edit'])->name('soil-param.edit');
+    Route::put('/soil-param/update/{soilParam}', [SoilParamController::class, 'update'])->name('soil-param.update');
+    Route::get('/soil-param/show/{soilParam}', [SoilParamController::class, 'show'])->name('soil-param.show');
 });
