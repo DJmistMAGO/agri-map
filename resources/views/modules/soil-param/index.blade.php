@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+    <x-success></x-success>
+    <x-errors></x-errors>
     <div class="col-md-12">
         <div class="card card-custom">
             <div class="card-header">
@@ -35,23 +37,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>
-                                    <a href="{{-- route('soil-param.show',1) --}}" class="btn btn-sm btn-success" title="View details">
-                                        VIEW
-                                    </a>
-                                    <a href="{{-- route('soil-param.edit',1) --}}" class="btn btn-sm btn-primary" title="Edit details">
-                                        EDIT
-                                    </a>
-                                    <a href="{{-- route('soil-param.destroy',1) --}}" class="btn btn-sm btn-danger" title="Delete">
-                                        DELETE
-                                    </a>
-                                </td>
-                            </tr>
+                            @forelse ($params as $item)
+                                <tr>
+                                    <td>{{ $item->latitude }} <br> {{ $item->longitude }} </td>
+                                    <td>{{ $item->land_type }}</td>
+                                    <td>{{ $item->soil_type }}</td>
+                                    <td>{{ $item->soil_ph }}</td>
+                                    <td>{{ $item->soil_temperature }}</td>
+                                    <td>{{ $item->soil_moisture }}</td>
+                                    <td>
+                                        <a href="{{-- route('soil-param.show',1) --}}" class="btn btn-sm btn-success" title="View details">
+                                            VIEW
+                                        </a>
+                                        <a href="{{-- route('soil-param.edit',1) --}}" class="btn btn-sm btn-primary" title="Edit details">
+                                            EDIT
+                                        </a>
+                                        <a href="{{-- route('soil-param.destroy',1) --}}" class="btn btn-sm btn-danger" title="Delete">
+                                            DELETE
+                                        </a>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="7" class="text-center">No records found</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SoilParam;
 use Illuminate\Http\Request;
 
 class SoilParamController extends Controller
 {
     public function index()
     {
-        return view('modules.soil-param.index');
+        $params = SoilParam::all();
+        return view('modules.soil-param.index', compact('params'));
     }
 
     public function create()
@@ -31,5 +33,33 @@ class SoilParamController extends Controller
         ];
 
         return view('modules.soil-param.create', compact('landtype', 'soiltype', 'soil_moisture', 'soil_ph'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'land_type' => 'required',
+            'soil_type' => 'required',
+            'soil_moisture' => 'required',
+            'soil_temperature' => 'required',
+            'soil_ph' => 'required',
+        ]);
+
+        // dd($request->all());
+
+        $soilparam = SoilParam::create([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'land_type' => $request->land_type,
+            'soil_type' => $request->soil_type,
+            'soil_moisture' => $request->soil_moisture,
+            'soil_temperature' => $request->soil_temperature,
+            'soil_ph' => $request->soil_ph,
+        ]);
+
+
+        return redirect('/soil-param')->with('success', 'Soil Parameter saved!');
     }
 }
