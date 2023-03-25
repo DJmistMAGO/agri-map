@@ -19,6 +19,7 @@ use App\Http\Controllers\SoilParamController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [Controller::class, 'index'])->name('home');
+    Route::get('/params', [Controller::class, 'params'])->name('params');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
 });

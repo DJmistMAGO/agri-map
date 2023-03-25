@@ -74,8 +74,6 @@
             align-items: center;
             height: 100vh;
         }
-
-        
     </style>
 </head>
 
@@ -154,7 +152,8 @@
     </script>
     <script>
         $(document).ready(function() {
-            mApp.initScrollTop();
+            // mApp.init();
+            // mApp.initScrollTop();
             $('body').scrollspy({
                 target: "#navbar",
                 offset: 50

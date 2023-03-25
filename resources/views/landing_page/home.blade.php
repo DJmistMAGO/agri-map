@@ -172,7 +172,10 @@
 
 @push('scripts')
     @livewireScripts
+
     <script>
+        var geojson = <?php echo json_encode($geojson); ?>;
+
         // initialize map and set its center and zoom level
         var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 18);
 
@@ -184,8 +187,18 @@
             zoomOffset: -1
         }).addTo(map);
 
-        // add marker to map
-        L.marker([12.668945714230706, 123.88067528173328]).addTo(map)
-            .bindPopup("<b>Bulan National High School!</b><br />Lorem Ipsum.").openPopup();
+        L.geoJSON(geojson, {
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng);
+            },
+            onEachFeature: function(feature, layer) {
+                var popupContent = "<p>Land Type: " + feature.properties.land_type + "</p>" +
+                    "<p>Soil Type: " + feature.properties.soil_type + "</p>" +
+                    "<p>Soil Moisture: " + feature.properties.soil_moisture + "</p>" +
+                    "<p>Soil Temperature: " + feature.properties.soil_temperature + "</p>" +
+                    "<p>Soil PH: " + feature.properties.soil_ph + "</p>";
+                layer.bindPopup(popupContent);
+            }
+        }).addTo(map);
     </script>
 @endpush
