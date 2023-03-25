@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -17,9 +18,7 @@ use App\Http\Controllers\SoilParamController;
 */
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return view('landing_page.home');
-    });
+    Route::get('/', [Controller::class, 'index'])->name('home');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
 });
