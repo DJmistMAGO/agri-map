@@ -52,27 +52,32 @@
             color: rgba(232, 225, 24, 0.927) !important;
         }
 
-        section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        #about, #contact, #weather, #soil , #contact {
             height: 100vh;
-            padding-top: 60px;
-            min-height: calc(100vh - 0px);
+            padding: 100px 0px
         }
+
 
         #mapid {
             height: 400px;
         }
 
         #landingHome {
-            padding-top: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-image: url({{ asset('images/1.jpg') }});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* responsive query */
+        @media only screen and (max-width: 767px) {
+            #about, #contact, #weather, #soil , #contact {
+                height: 40%;
+            }
         }
     </style>
 </head>
