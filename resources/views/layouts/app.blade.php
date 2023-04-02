@@ -52,9 +52,13 @@
             color: rgba(232, 225, 24, 0.927) !important;
         }
 
-        #about, #contact, #weather, #soil , #contact {
+        #about,
+        #contact,
+        #weather,
+        #soil,
+        #contact {
             height: 100vh;
-            padding: 100px 0px
+            padding: 90px 0px
         }
 
 
@@ -75,11 +79,18 @@
 
         /* responsive query */
         @media only screen and (max-width: 767px) {
-            #about, #contact, #weather, #soil , #contact {
+
+            #about,
+            #contact,
+            #weather,
+            #soil,
+            #contact {
                 height: 40%;
             }
         }
+
     </style>
+
 </head>
 
 <body id="landing" data-spy="scroll" data-target="#navbar">
