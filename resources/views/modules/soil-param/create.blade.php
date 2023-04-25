@@ -11,23 +11,18 @@
             <div class="col-md-12">
                 <x-card title="Add Record" :back-url="route('soil-param.index')">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="form-group">
-                                <label>Drag the marker or click on the map to select location</label>
+                                <label>Draw a polygon on the map on your specified location</label>
                                 <div id="mapid" style="height: 400px;"></div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label>Longitude</label>
-                                    <input type="text" class="form-control" name="longitude" id="est_lng" required
-                                        readonly>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label>Latitude</label>
-                                    <input type="text" class="form-control" name="latitude" id="est_lat" required
-                                        readonly>
+                                <div class="col-md-12 form-group">
+                                    <label>Location</label>
+                                    <input type="text" name="polygon" id="polygon" class="form-control"
+                                        value="{{ old('polygon') }}" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Land Type</label>
@@ -99,52 +94,81 @@
 @push('scripts')
     @livewireScripts
     <script>
-        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 18);
+        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 15);
 
-        // add tile layer to map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            maxZoom: 18,
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19,
             tileSize: 512,
             zoomOffset: -1
         }).addTo(map);
 
-        // add draggable marker to map
-        var marker = L.marker([12.668945714230706, 123.88067528173328], {
-            draggable: true
-        }).addTo(map);
+        var baseMaps = {
+            "Street View": L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+                tileSize: 512,
+                zoomOffset: -1
+            }),
+            "Satellite View": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
+                maxZoom: 18,
+                tileSize: 512,
+                zoomOffset: -1
+            })
+        };
+        L.control.layers(baseMaps).addTo(map);
 
-        marker.on('drag', function(e) {
-            var latlng = marker.getLatLng();
-            var lat = latlng.lat;
-            var lng = latlng.lng;
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+        var drawControl = new L.Control.Draw({
+            position: 'bottomleft',
+            draw: {
+                polygon: {
+                    shapeOptions: {
+                        color: 'purple' //polygons being drawn will be purple color
+                    },
+                    allowIntersection: false,
+                    drawError: {
+                        color: 'orange',
+                        timeout: 1000
+                    },
+                    showArea: true, //the area of the polygon will be displayed as it is drawn.
+                    metric: false,
+                    repeatMode: false,
 
-            marker.bindPopup("<b>Your marker location</b><br />Latitude: " + lat + "<br />Longitude: " + lng)
-                .openPopup();
-
-            document.getElementById("est_lat").value = lat;
-            document.getElementById("est_lng").value = lng;
+                },
+                polyline: false, //polyline type has been disabled.
+                circlemarker: false, //circlemarker type has been disabled.
+                rect: {
+                    shapeOptions: {
+                        color: 'green'
+                    },
+                },
+                circle: false,
+            },
+            edit: {
+                featureGroup: drawnItems
+            }
+        });
+        map.addControl(drawControl);
+        map.on('draw:created', function(e) {
+            var type = e.layerType,
+                layer = e.layer;
+            drawnItems.addLayer(layer);
+            $('#polygon').val(JSON.stringify(layer.toGeoJSON())); //saving the layer to the input field using jQuery
         });
 
-        // update marker position when map is clicked
-        map.on('click', function(e) {
-            marker.setLatLng(e.latlng);
-            var popLat = e.latlng.lat;
-            var popLng = e.latlng.lng;
-
-            var popup = L.popup()
-                .setLatLng([popLat, popLng])
-                .setContent('<h4 class="text-center text-primary" id="popUp">You\'ve clicked here!</h4>' +
-                    '<h6 style="font-weight: bold;" id="popUp"> Latitude: ' + popLat + '</h6>' +
-                    '<h6 style="font-weight: bold;" id="popUp"> Longitude: ' + popLng + '</h6>')
-                .openOn(map);
-
-            document.getElementById("est_lat").value = popLat;
-            document.getElementById("est_lng").value = popLng;
+        map.on('draw:edited', function(e) {
+            var type = e.layerType,
+                layer = e.layer;
+            $('#polygon').val(JSON.stringify(layer.toGeoJSON())); //saving the layer to the input field using jQuery
         });
 
-        // update input fields with initial marker position
-        document.getElementById("est_lat").value = marker.getLatLng().lat;
-        document.getElementById("est_lng").value = marker.getLatLng().lng;
+        map.on('draw:deleted', function(e) {
+            var type = e.layerType,
+                layer = e.layer;
+            $('#polygon').val(''); //saving the layer to the input field using jQuery
+        });
     </script>
 @endpush

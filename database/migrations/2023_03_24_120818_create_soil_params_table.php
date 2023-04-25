@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('soil_params', function (Blueprint $table) {
             $table->id();
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->json('polygon');
             $table->string('land_type');
             $table->string('soil_type');
             $table->string('soil_temperature');

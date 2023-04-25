@@ -17,7 +17,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     {{-- Leaflet --}}
-    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/dist/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.draw.css') }}">
 
     <style>
         [x-cloak] {
@@ -128,7 +130,8 @@
             "font-family": "Poppins"
         };
     </script>
-    <script src="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/leaflet/dist/leaflet-src.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/leaflet/leaflet.draw.js') }}"></script>
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
@@ -334,7 +337,7 @@
                 showCancelButton: false,
                 confirmButtonText: 'OK',
             }).then((result) => {
-                if(result.isConfirmed) {
+                if (result.isConfirmed) {
                     window.livewire.emit('records', event.detail.id)
                 }
             });
@@ -347,14 +350,14 @@
                 showCancelButton: false,
                 confirmButtonText: 'OK',
             }).then((result) => {
-                if(result.isConfirmed) {
+                if (result.isConfirmed) {
                     window.livewire.emit('records', event.detail.id)
                 }
             });
         });
-            let alertIsShown = false;
+        let alertIsShown = false;
         window.addEventListener('swal:failedrelease', event => {
-            if(!alertIsShown) {
+            if (!alertIsShown) {
                 alertIsShown = true;
                 Swal.fire({
                     position: 'top-center',

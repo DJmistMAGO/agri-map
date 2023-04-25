@@ -61,13 +61,12 @@
             padding: 90px 0px
         }
 
-
         #mapid {
             height: 400px;
         }
 
         #landingHome {
-            background-image: url({{ asset('images/1.jpg') }});
+            background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(0, 0, 0, 0.6)), url({{ asset('images/1.jpg') }});
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -88,7 +87,6 @@
                 height: 40%;
             }
         }
-
     </style>
 
 </head>

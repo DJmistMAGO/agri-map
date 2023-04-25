@@ -10,12 +10,14 @@ class SoilParam extends Model
     use HasFactory;
 
     protected $fillable = [
-        'latitude',
-        'longitude',
         'land_type',
         'soil_type',
         'soil_temperature',
         'soil_moisture',
         'soil_ph',
+    ];
+
+    protected $casts = [
+        'polygon' => 'array'
     ];
 }
