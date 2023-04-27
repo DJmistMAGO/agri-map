@@ -17,7 +17,7 @@ class SoilParamController extends Controller
     public function create()
     {
         $landtype = ['Highland', 'Lowland', 'Coastal'];
-        $soiltype = ['Macabare Sandy Loan', 'Beach Sand', 'Bulusan Sandy Loam', 'Bascaran Sandy Loam', 'Ubay Clay Loam', 'Silay Fine Sandy Loam'];
+        $soiltype = ['Macabare Sandy Loam', 'Beach Sand', 'Bulusan Sandy Loam', 'Bascaran Sandy Loam', 'Ubay Clay Loam', 'Silay Fine Sandy Loam'];
         $soil_moisture = [
             '<15% = Very Dry',
             '15-20% = Dry',
