@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-6 mt-2">
             <div class="card card-custom card-stretch">
-                <div class="card-header" style="background-color: #2a969a">
+                <div class="card-header" style="background-color: #0ed8df">
                     <div class="card-title">
                         <h3 class="card-label text-white">SOIL PH</h3>
                     </div>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-6 mt-2">
             <div class="card card-custom card-stretch">
-                <div class="card-header" style="background-color: #a8602c">
+                <div class="card-header" style="background-color: #d96410">
                     <div class="card-title">
                         <h3 class="card-label text-white">SOIL TYPE</h3>
                     </div>
@@ -40,22 +40,23 @@
     <script>
         var options = {
             series: [
-                {{ $very_dry }},
-                {{ $dry }},
-                {{ $moist }},
-                {{ $wet }},
-                {{ $very_wet }},
+                {{ $phRed }},
+                {{ $phOrange }},
+                {{ $phYellow }},
+                {{ $phGreen }},
+                {{ $phBlue }},
             ],
             chart: {
                 type: 'pie',
             },
-            labels: ['Very Acidic', 'Acidic', 'Slightly Acidic', 'Nearly Acidic', 'Slightly Alkaline',
-                'Alkaline to Very Alkaline',
+            labels: ['Extremely Acidic', 'Very Strongly Acidic', 'Strongly Acidic', 'Moderately and Slightly Acid',
+                'Nearly Neutral to Extremely Alkaline',
             ],
             legend: {
                 position: "bottom",
                 verticalAlign: "top",
             },
+            colors: ['#EE3722', '#F57E26', '#F4EC08', '#4DB847', '#0A29B1'],
         };
         var chart = new ApexCharts(document.querySelector("#soilPh"), options);
         chart.render();

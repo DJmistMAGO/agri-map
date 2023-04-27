@@ -185,15 +185,15 @@
                                     <span><i class="fas fa-square" style="color: yellow;"></i> Coastal</span>
                                 </div>
                                 <div class="p-2" id="soilPhLegends" style="display: none;">
-                                    <span><i class="fas fa-square" style="color: red;"></i> 6.8 or higher (Nearly Neutral
+                                    <span><i class="fas fa-square" style="color: blue;"></i> 6.8 or higher (Nearly Neutral
                                         to Extremely Alkaline)</span> <br>
-                                    <span><i class="fas fa-square" style="color: blue;"></i> 5.6 - 6.8 (Moderately and
+                                    <span><i class="fas fa-square" style="color: green;"></i> 5.6 - 6.8 (Moderately and
                                         Slightly Acid)</span> <br>
-                                    <span><i class="fas fa-square" style="color: green;"></i> 5.1 - 5.5 (Strongly
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> 5.1 - 5.5 (Strongly
                                         Acid)</span> <br>
-                                    <span><i class="fas fa-square" style="color: yellow;"></i> 4.6 – 5.0 (Very Strongly
+                                    <span><i class="fas fa-square" style="color: orange;"></i> 4.6 – 5.0 (Very Strongly
                                         Acid)</span> <br>
-                                    <span><i class="fas fa-square" style="color: orange;"></i> Less than 4.6 (Extremely
+                                    <span><i class="fas fa-square" style="color: red;"></i> Less than 4.6 (Extremely
                                         Acid)</span>
                                 </div>
                                 <div class="p-2" id="soilTypeLegends" style="display: none;">
@@ -366,15 +366,15 @@
                 var soilPh = '{{ $param->soil_ph }}';
                 var color;
                 if (soilPh > 6.8) {
-                    color = 'red';
-                } else if (soilPh > 5.6) {
                     color = 'blue';
-                } else if (soilPh > 5.1) {
+                } else if (soilPh > 5.6) {
                     color = 'green';
-                } else if (soilPh > 4.6) {
+                } else if (soilPh > 5.1) {
                     color = 'yellow';
-                } else {
+                } else if (soilPh > 4.6) {
                     color = 'orange';
+                } else {
+                    color = 'red';
                 }
 
                 var layer = L.geoJSON(JSON.parse(polygon), {

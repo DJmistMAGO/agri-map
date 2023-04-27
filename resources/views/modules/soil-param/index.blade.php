@@ -50,10 +50,6 @@
                                     <td>{{ $item->soil_temperature }}</td>
                                     <td>{{ $item->soil_moisture }}</td>
                                     <td>
-                                        <a href="{{ route('soil-param.show', $item->id) }}" class="btn btn-sm btn-success"
-                                            title="View details">
-                                            VIEW
-                                        </a>
                                         <a href="{{ route('soil-param.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             title="Edit details">
                                             EDIT

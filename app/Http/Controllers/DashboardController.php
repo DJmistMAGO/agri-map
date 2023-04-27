@@ -21,9 +21,14 @@ class DashboardController extends Controller
         $bulusan = SoilParam::where('soil_type', 'Bulusan Sandy Loam')->count();
         $bascaran = SoilParam::where('soil_type', 'Bascaran Sandy Loam')->count();
         $ubay = SoilParam::where('soil_type', 'Ubay Clay Loam')->count();
-        $silay = SoilParam::where('soil_type', 'Silay F9ne Sandy Loam')->count();
+        $silay = SoilParam::where('soil_type', 'Silay Fine Sandy Loam')->count();
 
+        $phBlue = SoilParam::where('soil_ph', '>=', '6.8')->count();
+        $phGreen = SoilParam::where('soil_ph', '>=', '5.6')->count();
+        $phYellow = SoilParam::where('soil_ph', '>=', '5.1')->count();
+        $phOrange = SoilParam::where('soil_ph', '>=', '4.6')->count();
+        $phRed = SoilParam::where('soil_ph', '<=', '4.5')->count();
 
-        return view('modules.dashboard', compact( 'very_dry', 'dry', 'moist', 'wet', 'very_wet', 'macabare', 'beach', 'bulusan', 'bascaran', 'ubay', 'silay' ));
+        return view('modules.dashboard', compact('very_dry', 'dry', 'moist', 'wet', 'very_wet', 'macabare', 'beach', 'bulusan', 'bascaran', 'ubay', 'silay', 'phBlue', 'phGreen', 'phYellow', 'phOrange', 'phRed'));
     }
 }

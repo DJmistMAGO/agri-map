@@ -137,6 +137,10 @@
 
         // drawnItems.addLayer(layer);
         map.addLayer(drawnItems);
+        var bounds = drawnItems.getBounds();
+
+        // Fit the map to the bounds of the drawn items layer
+        map.fitBounds(bounds);
 
         var drawControl = new L.Control.Draw({
             position: 'bottomleft',
