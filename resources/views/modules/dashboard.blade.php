@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mt-2" >
+        <div class="col-md-6 mt-2">
             <div class="card card-custom card-stretch">
                 <div class="card-header" style="background-color: #a8602c">
                     <div class="card-title">
@@ -39,8 +39,12 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         var options = {
-            series: [{{ $very_acidic }}, {{ $acidic }}, {{ $slightly_acidic }}, {{ $neutral }},
-                {{ $slightly_alkaline }}, {{ $alkaline }}
+            series: [
+                {{ $very_dry }},
+                {{ $dry }},
+                {{ $moist }},
+                {{ $wet }},
+                {{ $very_wet }},
             ],
             chart: {
                 type: 'pie',
@@ -68,18 +72,28 @@
             },
             series: [{
                 data: [{
-                    x: 'Sand',
-                    y: {{ $sand }}
-                }, {
-                    x: 'Silt',
-                    y: {{ $silt }}
-                }, {
-                    x: 'Clay',
-                    y: {{ $clay }}
-                }, {
-                    x: 'Loam',
-                    y: {{ $loam }}
-                }]
+                        x: 'Macabare Sandy Loam',
+                        y: {{ $macabare }}
+                    },
+                    {
+                        x: 'Beach Sand',
+                        y: {{ $beach }}
+                    }, {
+                        x: 'Bulusan Sandy Loam',
+                        y: {{ $bulusan }}
+                    }, {
+                        x: 'Bascaran Sandy Loam',
+                        y: {{ $bascaran }}
+                    },
+                    {
+                        x: 'Ubay Clay Loam',
+                        y: {{ $ubay }}
+                    },
+                    {
+                        x: 'Silay Fine Sandy Loam',
+                        y: {{ $silay }}
+                    }
+                ]
             }]
         }
         var chart = new ApexCharts(document.querySelector("#soilType"), options);

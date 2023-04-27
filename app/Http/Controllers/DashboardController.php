@@ -10,18 +10,20 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $very_acidic = SoilParam::where('soil_ph', '(pH < 5.2) Very Acidic')->count();
-        $acidic = SoilParam::where('soil_ph', '(pH 5.2 to 6.0) Acidic')->count();
-        $slightly_acidic = SoilParam::where('soil_ph', '(pH 6.0 to 6.5) Sligthly Acidic')->count();
-        $neutral = SoilParam::where('soil_ph', '(pH 6.5 to 7.0) Nearly Acidic')->count();
-        $slightly_alkaline = SoilParam::where('soil_ph', '(pH 7.0 to 7.5) Slightly Alkaline')->count();
-        $alkaline = SoilParam::where('soil_ph', '(pH 7.5 to 14) Alkaline to Very Alkaline')->count();
+        $very_dry = SoilParam::where('soil_moisture', '<15% = Very Dry')->count();
+        $dry = SoilParam::where('soil_moisture', '15-20% = Dry')->count();
+        $moist = SoilParam::where('soil_moisture', '20-25% = Moist')->count();
+        $wet = SoilParam::where('soil_moisture', '25-30% = Wet')->count();
+        $very_wet = SoilParam::where('soil_moisture', '>30% = Very Wet')->count();
 
-        $sand = SoilParam::where('soil_type', 'Sand')->count();
-        $loam = SoilParam::where('soil_type', 'Loam')->count();
-        $clay = SoilParam::where('soil_type', 'Clay')->count();
-        $silt = SoilParam::where('soil_type', 'Silt')->count();
+        $macabare = SoilParam::where('soil_type', 'Macabare Sandy Loam')->count();
+        $beach = SoilParam::where('soil_type', 'Beach Sand')->count();
+        $bulusan = SoilParam::where('soil_type', 'Bulusan Sandy Loam')->count();
+        $bascaran = SoilParam::where('soil_type', 'Bascaran Sandy Loam')->count();
+        $ubay = SoilParam::where('soil_type', 'Ubay Clay Loam')->count();
+        $silay = SoilParam::where('soil_type', 'Silay F9ne Sandy Loam')->count();
 
-        return view('modules.dashboard', compact('very_acidic', 'acidic', 'slightly_acidic', 'neutral', 'slightly_alkaline', 'alkaline', 'sand', 'loam', 'clay', 'silt'));
+
+        return view('modules.dashboard', compact( 'very_dry', 'dry', 'moist', 'wet', 'very_wet', 'macabare', 'beach', 'bulusan', 'bascaran', 'ubay', 'silay' ));
     }
 }
