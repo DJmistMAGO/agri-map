@@ -55,7 +55,7 @@
                                     <label>Temperature</label>
                                     <div class="input-group">
                                         <input type="number" name="soil_temperature" class="form-control" step="0.01"
-                                            placeholder="Temperature" value="{{ old('temperature') }}" required>
+                                            placeholder="Temperature" value="{{ old('soil_temperature') }}" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">°C</span>
                                         </div>
@@ -66,7 +66,7 @@
                                     <select name="soil_moisture" class="form-control" required>
                                         <option value="">--Select Soil Moisture--</option>
                                         @foreach ($soil_moisture as $moist)
-                                            <option value="{{ $moist }}" @selected(old('moisture') == $moist)>
+                                            <option value="{{ $moist }}" @selected(old('soil_moisture') == $moist)>
                                                 {{ $moist }}
                                             </option>
                                         @endforeach

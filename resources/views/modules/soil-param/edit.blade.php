@@ -5,8 +5,11 @@
 @endsection
 
 @section('content')
+    <x-errors></x-errors>
+    <x-success></x-success>
     <form action="{{ route('soil-param.update', $soilParam->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="row">
             <div class="col-md-12">
                 <x-card title="Edit Record" :back-url="route('soil-param.index')">
@@ -20,16 +23,21 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12 form-group">
+                                    {{-- <label>Location</label> --}}
+                                    <input type="hidden" name="polygon" id="polygon" class="form-control"
+                                        value="{{ $soilParam->polygon }}" readonly>
+                                </div>
+                                <div class="col-md-12 form-group">
                                     <label>Location</label>
-                                    <input type="text" name="polygon" id="polygon" class="form-control"
-                                        value="{{ old('polygon') }}" readonly>
+                                    <input type="text" name="location" class="form-control"
+                                        value="{{ $soilParam->location }}" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>Land Type</label>
                                     <select name="land_type" class="form-control" required>
                                         <option value="">--Select land type--</option>
                                         @foreach ($landtype as $ltype)
-                                            <option value="{{ $ltype }}" @selected(old('land_type') == $ltype)>
+                                            <option value="{{ $ltype }}" @selected($soilParam->land_type == $ltype)>
                                                 {{ $ltype }}
                                             </option>
                                         @endforeach
@@ -40,7 +48,7 @@
                                     <select name="soil_type" class="form-control" required>
                                         <option value="">--Select Soil Type--</option>
                                         @foreach ($soiltype as $stype)
-                                            <option value="{{ $stype }}" @selected(old('soil_type') == $stype)>
+                                            <option value="{{ $stype }}" @selected($soilParam->soil_type == $stype)>
                                                 {{ $stype }}
                                             </option>
                                         @endforeach
@@ -50,7 +58,7 @@
                                     <label>Temperature</label>
                                     <div class="input-group">
                                         <input type="number" name="soil_temperature" class="form-control" step="0.01"
-                                            placeholder="Temperature" value="{{ old('temperature') }}" required>
+                                            placeholder="Temperature" value="{{ $soilParam->soil_temperature }}" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">°C</span>
                                         </div>
@@ -61,7 +69,7 @@
                                     <select name="soil_moisture" class="form-control" required>
                                         <option value="">--Select Soil Moisture--</option>
                                         @foreach ($soil_moisture as $moist)
-                                            <option value="{{ $moist }}" @selected(old('moisture') == $moist)>
+                                            <option value="{{ $moist }}" @selected($soilParam->soil_moisture == $moist)>
                                                 {{ $moist }}
                                             </option>
                                         @endforeach
@@ -69,14 +77,8 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Soil pH</label>
-                                    <select name="soil_ph" class="form-control" required>
-                                        <option value="">--Select Soil pH--</option>
-                                        @foreach ($soil_ph as $ph)
-                                            <option value="{{ $ph }}" @selected(old('ph') == $ph)>
-                                                {{ $ph }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <input type="number" name="soil_ph" step="0.01" class="form-control" required
+                                        value="{{ $soilParam->soil_ph }}">
                                 </div>
                                 {{-- submit button --}}
                                 <div class="col-md-12">
@@ -96,8 +98,8 @@
     <script>
         var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 15);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
             maxZoom: 19,
             tileSize: 512,
             zoomOffset: -1
@@ -112,7 +114,7 @@
             }),
             "Satellite View": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
                 attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
-                maxZoom: 18,
+                maxZoom: 17,
                 tileSize: 512,
                 zoomOffset: -1
             })
@@ -120,7 +122,22 @@
         L.control.layers(baseMaps).addTo(map);
 
         var drawnItems = new L.FeatureGroup();
+
+        var polygon = @json($soilParam->polygon);
+        layer = L.geoJSON(JSON.parse(polygon), {
+            style: {
+                color: 'purple'
+            },
+            onEachFeature: function(feature, layer) {
+                drawnItems.addLayer(layer);
+            }
+        });
+
+        drawnItems.addLayer(layer);
+
+        // drawnItems.addLayer(layer);
         map.addLayer(drawnItems);
+
         var drawControl = new L.Control.Draw({
             position: 'bottomleft',
             draw: {
@@ -136,38 +153,49 @@
                     showArea: true, //the area of the polygon will be displayed as it is drawn.
                     metric: false,
                     repeatMode: false,
-
+                    edit: {
+                        featureGroup: drawnItems
+                    }
                 },
-                polyline: false, //polyline type has been disabled.
-                circlemarker: false, //circlemarker type has been disabled.
-                rect: false, //rectangle type has been disabled.
-                circle: false, //circle type has been disabled.
+                polyline: false,
+                circlemarker: false,
+                rect: false,
+                circle: false,
+                marker: false,
             },
             edit: {
                 featureGroup: drawnItems
             }
         });
         map.addControl(drawControl);
-        map.on('draw:created', function(e) {
-            var type = e.layerType,
-                layer = e.layer;
+
+        map.on(L.Draw.Event.CREATED, function(event) {
+            var layer = event.layer;
             drawnItems.addLayer(layer);
-            $('#polygon').val(JSON.stringify(layer.toGeoJSON())); //saving the layer to the input field using jQuery
+            var polygon = JSON.stringify(drawnItems.toGeoJSON());
+            $('#polygon').val(polygon);
         });
 
-        // on edit, update the input field and save the layer
-        map.on('draw:edited', function(e) {
-            var layers = e.layers;
+        map.on(L.Draw.Event.EDITED, function(event) {
+            var layers = event.layers;
+            var countOfEditedLayers = 0;
             layers.eachLayer(function(layer) {
-                $('#polygon').val(JSON.stringify(layer
-                    .toGeoJSON())); //saving the layer to the input field using jQuery
+                countOfEditedLayers++;
             });
+            console.log("Edited " + countOfEditedLayers + " layers");
+            var polygon = JSON.stringify(drawnItems.toGeoJSON());
+            $('#polygon').val(polygon);
         });
 
-        map.on('draw:deleted', function(e) {
-            var type = e.layerType,
-                layer = e.layer;
-            $('#polygon').val(''); //saving the layer to the input field using jQuery
+        map.on(L.Draw.Event.DELETED, function(event) {
+            var layers = event.layers;
+            var countOfEditedLayers = 0;
+            layers.eachLayer(function(layer) {
+                countOfEditedLayers++;
+            });
+            console.log("Deleted " + countOfEditedLayers + " layers");
+            var polygon = JSON.stringify(drawnItems.toGeoJSON());
+            $('#polygon').val(polygon);
         });
     </script>
 @endpush

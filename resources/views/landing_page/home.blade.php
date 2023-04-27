@@ -139,16 +139,16 @@
         </section>
 
         <section id="soil" class=" bg-light">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div id="mapid" style="height: 450px;"></div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <h2 class="text-center">Soil Parameters</h2>
-                        <p class="text-justify">Soil parameters are the characteristics of the soil that can be measured
-                            and used to describe the soil. These parameters can be used to determine the soil type, soil
-                            texture, soil structure, soil color, soil pH, soil moisture, and soil temperature.</p>
+                        <p class="text-justify">Soil parameters are the characteristics used to
+                            measure and describe the soil. These parameters can be used to determine the land type, soil pH,
+                            soil type, soil moisture, and soil temperature.</p>
                         <div class="row m-0 text-center justify-content-center">
                             <button onclick="landType()" class="btn btn-danger rounded-xl mr-3 mb-3 d-inline-block">
                                 <i class="fas fa-mountain mr-2"></i>
@@ -174,6 +174,60 @@
                                 <i class="fas fa-thermometer-half mr-2"></i>
                                 SOIL TEMPERATURE
                             </button>
+                        </div>
+                        <p>Click on the buttons above to display data on the map.</p>
+                        <div class="card border-dark border rounded-sm">
+                            <div class="card-body">
+                                <h4 class="text-center mt-0">Legends</h4>
+                                <div class="p-2" id="landTypeLegends" style="display: none;">
+                                    <span><i class="fas fa-square" style="color: red;"></i> Highland</span> <br>
+                                    <span><i class="fas fa-square" style="color: blue;"></i> Lowland</span> <br>
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> Coastal</span>
+                                </div>
+                                <div class="p-2" id="soilPhLegends" style="display: none;">
+                                    <span><i class="fas fa-square" style="color: red;"></i> 6.8 or higher (Nearly Neutral
+                                        to Extremely Alkaline)</span> <br>
+                                    <span><i class="fas fa-square" style="color: blue;"></i> 5.6 - 6.8 (Moderately and
+                                        Slightly Acid)</span> <br>
+                                    <span><i class="fas fa-square" style="color: green;"></i> 5.1 - 5.5 (Strongly
+                                        Acid)</span> <br>
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> 4.6 – 5.0 (Very Strongly
+                                        Acid)</span> <br>
+                                    <span><i class="fas fa-square" style="color: orange;"></i> Less than 4.6 (Extremely
+                                        Acid)</span>
+                                </div>
+                                <div class="p-2" id="soilTypeLegends" style="display: none;">
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> Macabare Sandy Loam</span>
+                                    <br>
+                                    <span><i class="fas fa-square" style="color: orange;"></i> Beach Sand</span> <br>
+                                    <span><i class="fas fa-square" style="color: blue;"></i> Bulusan Sandy Loam</span>
+                                    <br>
+                                    <span><i class="fas fa-square" style="color: red;"></i> Bascaran Sandy Loam</span>
+                                    <br>
+                                    <span><i class="fas fa-square" style="color: green;"></i> Ubay Clay Loam</span> <br>
+                                    <span><i class="fas fa-square" style="color: purple;"></i> Silay Fine Sandy
+                                        Loam</span>
+                                </div>
+                                <div class="p-2" id="soilMoistureLegends" style="display: none;">
+                                    <span><i class="fas fa-square" style="color: blue;"></i> 30% or higher (Very
+                                        Wet)</span> <br>
+                                    <span><i class="fas fa-square" style="color: green;"></i> 25% – 30% (Wet)</span> <br>
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> 20% – 25% (Moderate)</span>
+                                    <br>
+                                    <span><i class="fas fa-square" style="color: orange;"></i> 15% – 20% (Dry)</span> <br>
+                                    <span><i class="fas fa-square" style="color: red;"></i> Less than 15% (Very
+                                        Dry)</span>
+                                </div>
+                                <div class="p-2" id="soilTempLegends" style="display: none;">
+                                    <span><i class="fas fa-square" style="color: red;"></i> 60&deg;C above </span> <br>
+                                    <span><i class="fas fa-square" style="color: orange;"></i> 49&deg;C </span> <br>
+                                    <span><i class="fas fa-square" style="color: yellow;"></i> 45&deg;C </span>
+                                    <br>
+                                    <span><i class="fas fa-square" style="color: green;"></i> 38&deg;C </span> <br>
+                                    <span><i class="fas fa-square" style="color: blue;"></i> 32&deg;C</span> <br>
+                                    <span><i class="fas fa-square" style="color: violet;"></i> 21&deg;C</span>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -222,7 +276,7 @@
         var polygonCoords = [];
         var params = [];
 
-        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 16);
+        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 14);
 
         // add tile layer to map
         L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
@@ -255,6 +309,14 @@
                     map.removeLayer(layer);
                 }
             });
+
+            // show legends
+            document.getElementById('landTypeLegends').style.display = 'block';
+            // hide other legends
+            document.getElementById('soilMoistureLegends').style.display = 'none';
+            document.getElementById('soilPhLegends').style.display = 'none';
+            document.getElementById('soilTypeLegends').style.display = 'none';
+            document.getElementById('soilTempLegends').style.display = 'none';
 
             // Add new layers
             @foreach ($params as $param)
@@ -290,6 +352,14 @@
                 }
             });
 
+            // show legends
+            document.getElementById('soilPhLegends').style.display = 'block';
+            // hide other legends
+            document.getElementById('landTypeLegends').style.display = 'none';
+            document.getElementById('soilMoistureLegends').style.display = 'none';
+            document.getElementById('soilTypeLegends').style.display = 'none';
+            document.getElementById('soilTempLegends').style.display = 'none';
+
             // Add new layers
             @foreach ($params as $param)
                 var polygon = @json($param->polygon);
@@ -313,7 +383,7 @@
                     }
                 }).addTo(map);
                 layer.bindPopup(
-                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                    '<strong class="text-center font-size-lg">{{ $param->location }}</strong> <div class="text-left"><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
                 );
                 layer.on('mouseover', function(e) {
                     this.openPopup();
@@ -329,21 +399,30 @@
                 }
             });
 
+            // show legends
+            document.getElementById('soilMoistureLegends').style.display = 'block';
+            // hide other legends
+            document.getElementById('landTypeLegends').style.display = 'none';
+            document.getElementById('soilPhLegends').style.display = 'none';
+            document.getElementById('soilTypeLegends').style.display = 'none';
+            document.getElementById('soilTempLegends').style.display = 'none';
+
+
             // Add new layers
             @foreach ($params as $param)
                 var polygon = @json($param->polygon);
                 var soilMoisture = '{{ $param->soil_moisture }}';
                 var color;
                 if (soilMoisture === '<15% = Very Dry') {
-                    color = 'blue';
+                    color = 'red';
                 } else if (soilMoisture === '15-20% = Dry') {
-                    color = 'green';
+                    color = 'orange';
                 } else if (soilMoisture === '20-25% = Moist') {
                     color = 'yellow';
                 } else if (soilMoisture === '25-30% = Wet') {
-                    color = 'orange';
+                    color = 'green';
                 } else {
-                    color = 'red';
+                    color = 'blue';
                 }
 
                 var layer = L.geoJSON(JSON.parse(polygon), {
@@ -352,7 +431,7 @@
                     }
                 }).addTo(map);
                 layer.bindPopup(
-                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                    '<strong class="text-center font-size-lg">{{ $param->location }}</strong> <div class="text-left"><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
                 );
                 layer.on('mouseover', function(e) {
                     this.openPopup();
@@ -367,6 +446,14 @@
                     map.removeLayer(layer);
                 }
             });
+
+            //show legends
+            document.getElementById('soilTypeLegends').style.display = 'block';
+            // hide other legends
+            document.getElementById('landTypeLegends').style.display = 'none';
+            document.getElementById('soilPhLegends').style.display = 'none';
+            document.getElementById('soilMoistureLegends').style.display = 'none';
+            document.getElementById('soilTempLegends').style.display = 'none';
 
             // Add new layers
             @foreach ($params as $param)
@@ -393,7 +480,7 @@
                     }
                 }).addTo(map);
                 layer.bindPopup(
-                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                    '<strong class="text-center font-size-lg">{{ $param->location }}</strong> <div class="text-left"><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
                 );
                 layer.on('mouseover', function(e) {
                     this.openPopup();
@@ -408,6 +495,14 @@
                     map.removeLayer(layer);
                 }
             });
+
+            //show legends
+            document.getElementById('soilTempLegends').style.display = 'block';
+            // hide other legends
+            document.getElementById('landTypeLegends').style.display = 'none';
+            document.getElementById('soilPhLegends').style.display = 'none';
+            document.getElementById('soilTypeLegends').style.display = 'none';
+            document.getElementById('soilMoistureLegends').style.display = 'none';
 
             // Add new layers
             @foreach ($params as $param)
@@ -434,7 +529,7 @@
                     }
                 }).addTo(map);
                 layer.bindPopup(
-                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                    '<strong class="text-center font-size-lg">{{ $param->location }}</strong> <div class="text-left"><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Moisture:</strong> {{ $param->soil_moisture }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
                 );
                 layer.on('mouseover', function(e) {
                     this.openPopup();

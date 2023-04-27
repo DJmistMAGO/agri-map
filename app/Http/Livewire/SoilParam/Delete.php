@@ -21,18 +21,14 @@ class Delete extends Component
 
     public function delete($id)
     {
-        $soilParam = SoilParam::where('id', $id)->first();
-        // check first  if soilParam is not null
-        if ($soilParam != null) {
-            // delete first the resident records with the soilParam_id of the soilParam
-            $soilParam->delete();
-            return redirect()->route('soil-param.index');
-        } else {
-            $this->dispatchBrowserEvent('swal:deleted', ['message' => 'Date not found!']);
+        $soilpars = SoilParam::where('id', $id)->first();
+        if ($soilpars != null) {
+            $soilpars->delete();
+            return redirect()->to('/soil-param');
         }
-
-        return redirect()->route('soil-param.index');
+        return redirect()->to('/soil-param')->with('error', 'Record not found');
     }
+
     public function render()
     {
         return view('livewire.soil-param.delete');
