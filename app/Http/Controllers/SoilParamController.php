@@ -19,7 +19,7 @@ class SoilParamController extends Controller
         $landtype = ['Highland', 'Lowland', 'Coastal'];
         $soiltype = ['Macabare Sandy Loan', 'Beach Sand', 'Bulusan Sandy Loam', 'Bascaran Sandy Loam', 'Ubay Clay Loam', 'Silay Fine Sandy Loam'];
         $soil_moisture = [
-            '<15% = Very Dry ',
+            '<15% = Very Dry',
             '15-20% = Dry',
             '20-25% = Moist',
             '25-30% = Wet',
@@ -39,8 +39,8 @@ class SoilParamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'latitude' => 'required',
-            'longitude' => 'required',
+            'polygon' => ['required', 'unique:soil_params'],
+            'location' => 'required',
             'land_type' => 'required',
             'soil_type' => 'required',
             'soil_moisture' => 'required',
@@ -51,8 +51,8 @@ class SoilParamController extends Controller
         // dd($request->all());
 
         $soilparam = SoilParam::create([
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
+            'polygon' => $request->polygon,
+            'location' => $request->location,
             'land_type' => $request->land_type,
             'soil_type' => $request->soil_type,
             'soil_moisture' => $request->soil_moisture,
@@ -67,20 +67,20 @@ class SoilParamController extends Controller
     public function show(SoilParam $soilParam)
     {
         $landtype = ['Highland', 'Lowland', 'Coastal'];
-        $soiltype = ['Sand', 'Silt', 'Clay', 'Loam'];
+        $soiltype = ['Macabare Sandy Loan', 'Beach Sand', 'Bulusan Sandy Loam', 'Bascaran Sandy Loam', 'Ubay Clay Loam', 'Silay Fine Sandy Loam'];
         $soil_moisture = [
-            'Less than 20% of Normal',
-            '20% to 50% of Normal',
-            '50% to 70% of Normal',
-            '70% to 100% of Normal',
+            '<15% = Very Dry ',
+            '15-20% = Dry',
+            '20-25% = Moist',
+            '25-30% = Wet',
+            '>30% = Very Wet',
         ];
         $soil_ph = [
-            '(pH < 5.2) Very Acidic',
-            '(pH 5.2 to 6.0) Acidic',
-            '(pH 6.0 to 6.5) Sligthly Acidic',
-            '(pH 6.5 to 7.0) Nearly Acidic',
-            '(pH 7.0 to 7.5) Slightly Alkaline',
-            '(pH 7.5 to 14) Alkaline to Very Alkaline',
+            '<4.5 = Extremely Acidic',
+            '4.6 - 5.0 = Very Strongly Acidic',
+            '5.1 - 5.5 = Strongly Acidic',
+            '5.6 - 6.0 = Moderately and Slightly Acidic',
+            '>6.8 = Nearly Neutral to Extremely Alkaline',
         ];
 
         // dd($soilParam);
@@ -91,22 +91,21 @@ class SoilParamController extends Controller
     public function edit(SoilParam $soilParam)
     {
         $landtype = ['Highland', 'Lowland', 'Coastal'];
-        $soiltype = ['Sand', 'Silt', 'Clay', 'Loam'];
+        $soiltype = ['Macabare Sandy Loan', 'Beach Sand', 'Bulusan Sandy Loam', 'Bascaran Sandy Loam', 'Ubay Clay Loam', 'Silay Fine Sandy Loam'];
         $soil_moisture = [
-            'Less than 20% of Normal',
-            '20% to 50% of Normal',
-            '50% to 70% of Normal',
-            '70% to 100% of Normal',
+            '<15% = Very Dry ',
+            '15-20% = Dry',
+            '20-25% = Moist',
+            '25-30% = Wet',
+            '>30% = Very Wet',
         ];
         $soil_ph = [
-            '(pH < 5.2) Very Acidic',
-            '(pH 5.2 to 6.0) Acidic',
-            '(pH 6.0 to 6.5) Sligthly Acidic',
-            '(pH 6.5 to 7.0) Nearly Acidic',
-            '(pH 7.0 to 7.5) Slightly Alkaline',
-            '(pH 7.5 to 14) Alkaline to Very Alkaline',
+            '<4.5 = Extremely Acidic',
+            '4.6 - 5.0 = Very Strongly Acidic',
+            '5.1 - 5.5 = Strongly Acidic',
+            '5.6 - 6.0 = Moderately and Slightly Acidic',
+            '>6.8 = Nearly Neutral to Extremely Alkaline',
         ];
-
         // dd($soilParam);
 
         return view('modules.soil-param.edit', compact('landtype', 'soiltype', 'soil_moisture', 'soil_ph', 'soilParam'));

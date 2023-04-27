@@ -13,18 +13,23 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label>Draw a polygon on the map on your specified location</label>
-                                <div id="mapid" style="height: 400px;"></div>
+                                <label>Draw a polygon first on the map on your specified location</label>
+                                <div id="mapid" style="height: 500px;"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <label>Location</label>
-                                    <input type="text" name="polygon" id="polygon" class="form-control"
+                                    {{-- <label>Location</label> --}}
+                                    <input type="hidden" name="polygon" id="polygon" class="form-control"
                                         value="{{ old('polygon') }}" readonly>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="col-md-12 form-group">
+                                    <label>Location</label>
+                                    <input type="text" name="location" class="form-control" value="{{ old('location') }}"
+                                        required>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label>Land Type</label>
                                     <select name="land_type" class="form-control" required>
                                         <option value="">--Select land type--</option>
@@ -35,7 +40,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label>Soil Type</label>
                                     <select name="soil_type" class="form-control" required>
                                         <option value="">--Select Soil Type--</option>
@@ -49,7 +54,7 @@
                                 <div class="form-group col-md-6">
                                     <label>Temperature</label>
                                     <div class="input-group">
-                                        <input type="number" name="soil_temperature" class="form-control"
+                                        <input type="number" name="soil_temperature" class="form-control" step="0.01"
                                             placeholder="Temperature" value="{{ old('temperature') }}" required>
                                         <div class="input-group-append">
                                             <span class="input-group-text">°C</span>
@@ -69,18 +74,12 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label>Soil pH</label>
-                                    <select name="soil_ph" class="form-control" required>
-                                        <option value="">--Select Soil pH--</option>
-                                        @foreach ($soil_ph as $ph)
-                                            <option value="{{ $ph }}" @selected(old('ph') == $ph)>
-                                                {{ $ph }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <input type="number" name="soil_ph" step="0.01" class="form-control" required
+                                        value="{{ old('soil_ph') }}">
                                 </div>
-                                {{-- submit button --}}
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" id="submit" class="btn btn-primary"
+                                        style="display: none;">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -96,8 +95,8 @@
     <script>
         var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 15);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
             maxZoom: 19,
             tileSize: 512,
             zoomOffset: -1
@@ -140,12 +139,8 @@
                 },
                 polyline: false, //polyline type has been disabled.
                 circlemarker: false, //circlemarker type has been disabled.
-                rect: {
-                    shapeOptions: {
-                        color: 'green'
-                    },
-                },
-                circle: false,
+                rect: false, //rectangle type has been disabled.
+                circle: false, //circle type has been disabled.
             },
             edit: {
                 featureGroup: drawnItems
@@ -156,18 +151,25 @@
             var type = e.layerType,
                 layer = e.layer;
             drawnItems.addLayer(layer);
+            // show submit button
+            $('#submit').show();
             $('#polygon').val(JSON.stringify(layer.toGeoJSON())); //saving the layer to the input field using jQuery
         });
 
+        // on edit, update the input field and save the layer
         map.on('draw:edited', function(e) {
-            var type = e.layerType,
-                layer = e.layer;
-            $('#polygon').val(JSON.stringify(layer.toGeoJSON())); //saving the layer to the input field using jQuery
+            var layers = e.layers;
+            layers.eachLayer(function(layer) {
+                $('#polygon').val(JSON.stringify(layer
+                    .toGeoJSON())); //saving the layer to the input field using jQuery
+            });
         });
 
         map.on('draw:deleted', function(e) {
             var type = e.layerType,
                 layer = e.layer;
+            // hide submit button
+            $('#submit').hide();
             $('#polygon').val(''); //saving the layer to the input field using jQuery
         });
     </script>

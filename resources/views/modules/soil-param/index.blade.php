@@ -43,7 +43,7 @@
                         <tbody>
                             @forelse ($params as $item)
                                 <tr>
-                                    <td>{{ $item->latitude }} <br> {{ $item->longitude }} </td>
+                                    <td>{{ $item->location }}</td>
                                     <td>{{ $item->land_type }}</td>
                                     <td>{{ $item->soil_type }}</td>
                                     <td>{{ $item->soil_ph }}</td>
@@ -76,5 +76,4 @@
 
 @push('scripts')
     @livewireScripts()
-
 @endpush

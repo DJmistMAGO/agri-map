@@ -18,7 +18,8 @@
     <script src="{{ asset('assets/aos-master/dist/aos.js') }}"></script>
 
     {{-- Leaflet --}}
-    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/dist/leaflet.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/custom/leaflet/leaflet.draw.css') }}">
 
     <style>
         [x-cloak] {
@@ -155,7 +156,8 @@
             "font-family": "Poppins"
         };
     </script>
-    <script src="{{ asset('assets/plugins/custom/leaflet/leaflet.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/leaflet/dist/leaflet-src.js') }}"></script>
+    <script src="{{ asset('assets/plugins/custom/leaflet/leaflet.draw.js') }}"></script>
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>

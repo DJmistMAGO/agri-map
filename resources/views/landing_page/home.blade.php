@@ -141,22 +141,133 @@
         <section id="soil" class=" bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div id="mapid" style="height: 400px;"></div>
+                    <div class="col-md-8">
+                        <div id="mapid" style="height: 450px;"></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <h2 class="text-center">Soil Parameters</h2>
-                        <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis arcu et
-                            turpis
-                            scelerisque
-                            auctor. Curabitur volutpat eget felis id maximus. Donec id velit dolor.</p>
-                        <div class="row m-0">
-                            <a href="" class="col bg-primary px-6 py-8 rounded-xl mr-7 mb-7">
-                                <div>
-                                    <span class="svg-icon svg-icon-3x svg-icon-white d-block my-2">
+                        <div class="row m-0 text-center">
+                            <button onclick="landType()" class="col bg-danger px-6 py-8 rounded-xl mr-7 mb-7"
+                                style="text-decoration: none; border: none;">
+                                <div class="d-flex align-items-center">
+                                    <span class="svg-icon svg-icon-3x svg-icon-white mr-4">
                                         <span class="svg-icon svg-icon-white svg-icon-2x">
-                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg--><svg
-                                                xmlns="http://www.w3.org/2000/svg"
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <rect fill="#000000" opacity="0.3" x="2" y="5"
+                                                        width="20" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" x="2" y="17"
+                                                        width="20" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" x="2" y="9"
+                                                        width="5" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" x="16" y="13"
+                                                        width="6" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" x="9" y="9"
+                                                        width="13" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" x="2" y="13"
+                                                        width="12" height="2" rx="1" />
+                                                </g>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                    <span class="text-white font-weight-bold font-size-h6">LAND TYPE</span>
+                                </div>
+                            </button>
+                            <button onclick="soilPh()" class="col bg-primary px-6 py-8 rounded-xl mr-7 mb-7"
+                                style="text-decoration: none; border: none;">
+                                <div class="d-flex align-items-center">
+                                    <span class="svg-icon svg-icon-3x svg-icon-white mr-4">
+                                        <span class="svg-icon svg-icon-white svg-icon-2x">
+                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg-->
+                                            <svg fill="#ffffff" height="800px" width="800px" version="1.1"
+                                                id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                                                xml:space="preserve">
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M316.362,73.297c-4.466,0-8.084,3.62-8.084,8.084v30.72h-35.57v-30.72c0-4.465-3.619-8.084-8.084-8.084
+                                                        c-4.466,0-8.084,3.62-8.084,8.084v81.92c0,4.465,3.618,8.084,8.084,8.084c4.466,0,8.084-3.62,8.084-8.084v-35.032h35.57v35.032
+                                                        c0,4.465,3.618,8.084,8.084,8.084c4.466,0,8.084-3.62,8.084-8.084v-81.92C324.446,76.916,320.828,73.297,316.362,73.297z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M238.754,73.297h-43.116c-4.466,0-8.084,3.62-8.084,8.084v38.804v43.116c0,4.465,3.618,8.084,8.084,8.084
+                                                        c4.466,0,8.084-3.62,8.084-8.084v-35.032h35.032c4.466,0,8.084-3.62,8.084-8.084V81.381
+                                                        C246.838,76.916,243.219,73.297,238.754,73.297z M230.669,112.101h-26.947V89.465h26.947V112.101z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M381.036,0H130.964c-4.466,0-8.084,3.62-8.084,8.084v53.895c0,4.465,3.618,8.084,8.084,8.084
+                                                        c4.466,0,8.084-3.62,8.084-8.084v-45.81h233.903v216.643L300.5,293.187h-89l-72.452-60.376V98.627
+                                                        c0-4.465-3.618-8.084-8.084-8.084c-4.466,0-8.084,3.62-8.084,8.084v137.971c0,2.399,1.065,4.675,2.908,6.211l74.7,62.25v121.249
+                                                        c0,4.465,3.619,8.084,8.084,8.084h9.162v69.524c0,4.465,3.618,8.084,8.084,8.084h60.362c4.466,0,8.084-3.62,8.084-8.084v-69.524
+                                                        h9.162c4.466,0,8.084-3.62,8.084-8.084V305.058l74.7-62.25c1.843-1.536,2.908-3.811,2.908-6.211V8.084
+                                                        C389.12,3.62,385.502,0,381.036,0z M278.097,495.832h-44.194v-61.44h44.194V495.832z M295.343,418.223h-78.686V309.356h78.686
+                                                        V418.223z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M346.543,38.804H165.457c-4.466,0-8.084,3.62-8.084,8.084v150.905c0,4.465,3.619,8.084,8.084,8.084h181.086
+                                                        c4.466,0,8.084-3.62,8.084-8.084V46.888C354.627,42.424,351.009,38.804,346.543,38.804z M338.459,189.709H173.541V54.973h164.918
+                                                        V189.709z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M215.04,215.579c-15.156,0-27.486,12.33-27.486,27.486c0,15.156,12.33,27.486,27.486,27.486
+                                                        c15.156,0,27.486-12.33,27.486-27.486C242.526,227.909,230.196,215.579,215.04,215.579z M215.04,254.383
+                                                        c-6.241,0-11.318-5.077-11.318-11.318c0-6.241,5.077-11.318,11.318-11.318c6.241,0,11.318,5.077,11.318,11.318
+                                                        C226.358,249.306,221.281,254.383,215.04,254.383z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M296.96,215.579c-15.156,0-27.486,12.33-27.486,27.486c0,15.156,12.33,27.486,27.486,27.486
+                                                        c15.156,0,27.486-12.33,27.486-27.486C324.446,227.909,312.116,215.579,296.96,215.579z M296.96,254.383
+                                                        c-6.241,0-11.318-5.077-11.318-11.318c0-6.241,5.077-11.318,11.318-11.318s11.318,5.077,11.318,11.318
+                                                        C308.278,249.306,303.201,254.383,296.96,254.383z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M273.246,353.995c-4.466,0-8.084,3.62-8.084,8.084v29.736c0,4.465,3.618,8.084,8.084,8.084
+			                                            c4.466,0,8.084-3.62,8.084-8.084v-29.736C281.331,357.614,277.712,353.995,273.246,353.995z" />
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path
+                                                            d="M273.246,323.368c-4.466,0-8.084,3.62-8.084,8.084v8.511c0,4.465,3.618,8.084,8.084,8.084c4.466,0,8.084-3.62,8.084-8.084
+			                                            v-8.511C281.331,326.988,277.712,323.368,273.246,323.368z" />
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </span>
+                                    <span class="text-white font-weight-bold font-size-h6">SOIL PH</span>
+                                </div>
+                            </button>
+                            <button onclick="soilMoisture()" class="col bg-success px-6 py-8 rounded-xl mr-7 mb-7"
+                                style="text-decoration: none; border: none;">
+                                <div class="d-flex align-items-center">
+                                    <span class="svg-icon svg-icon-3x svg-icon-white mr-4">
+                                        <span class="svg-icon svg-icon-white svg-icon-2x">
+                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg-->
+                                            <svg xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                                 viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -172,41 +283,16 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </span>
-                                    <p class="text-white font-weight-bold font-size-h6">SOIL PH</p>
+                                    <span class="text-white font-weight-bold font-size-h6">SOIL MOISTURE</span>
                                 </div>
-                            </a>
-                            <a href="" class="col bg-success px-6 py-8 rounded-xl mb-7">
-                                <div>
-                                    <span class="svg-icon svg-icon-3x svg-icon-white d-block my-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <polygon points="0 0 24 0 24 24 0 24" />
-                                                <path
-                                                    d="M5.74714567,11.0425758 C4.09410362,9.9740356 3,8.11478859 3,6 C3,2.6862915 5.6862915,0 9,0 C11.7957591,0 14.1449096,1.91215918 14.8109738,4.5 L17.25,4.5 C19.3210678,4.5 21,6.17893219 21,8.25 C21,10.3210678 19.3210678,12 17.25,12 L8.25,12 C7.28817895,12 6.41093178,11.6378962 5.74714567,11.0425758 Z"
-                                                    fill="#000000" />
-                                                <path
-                                                    d="M4,21 L4,19 L17.5,19 C18.3284271,19 19,18.3284271 19,17.5 L19,17 C19,16.4477153 18.5522847,16 18,16 C17.4477153,16 17,16.4477153 17,17 L17,18 L15,18 L15,17 C15,15.3431458 16.3431458,14 18,14 C19.6568542,14 21,15.3431458 21,17 L21,17.5 C21,19.4329966 19.4329966,21 17.5,21 L4,21 Z"
-                                                    fill="#000000" fill-rule="nonzero" opacity="0.3"
-                                                    transform="translate(12.500000, 17.500000) scale(1, -1) translate(-12.500000, -17.500000) " />
-                                                <path
-                                                    d="M4,24 L4,22 L10.5,22 C11.3284271,22 12,21.3284271 12,20.5 L12,20 C12,19.4477153 11.5522847,19 11,19 C10.4477153,19 10,19.4477153 10,20 L10,21 L8,21 L8,20 C8,18.3431458 9.34314575,17 11,17 C12.6568542,17 14,18.3431458 14,20 L14,20.5 C14,22.4329966 12.4329966,24 10.5,24 L4,24 Z"
-                                                    fill="#000000" fill-rule="nonzero" opacity="0.3"
-                                                    transform="translate(9.000000, 20.500000) scale(1, -1) translate(-9.000000, -20.500000) " />
-                                            </g>
-                                        </svg>
-                                    </span>
-                                    <p class="text-white font-weight-bold font-size-h6 mt-2">SOIL MOISTURE</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="row m-0">
-                            <a href="" class="col bg-info px-6 py-8 rounded-xl mr-7 mb-7">
-                                <div>
-                                    <span class="svg-icon svg-icon-3x svg-icon-white d-block my-2">
+                            </button>
+                            <button onclick="soilType()" class="col bg-info px-6 py-8 rounded-xl mr-7 mb-7"
+                                style="text-decoration: none; border: none;">
+                                <div class="d-flex align-items-center">
+                                    <span class="svg-icon svg-icon-3x svg-icon-white mr-4">
                                         <span class="svg-icon svg-icon-white svg-icon-2x">
-                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg--><svg
-                                                xmlns="http://www.w3.org/2000/svg"
+                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg-->
+                                            <svg xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                                 viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -219,25 +305,31 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </span>
-                                    <p class="text-white font-weight-bold font-size-h6">SOIL TYPE</p>
+                                    <span class="text-white font-weight-bold font-size-h6">SOIL TYPE</span>
                                 </div>
-                            </a>
-                            <a href="" class="col bg-warning px-6 py-8 rounded-xl mb-7">
-                                <div>
-                                    <span class="svg-icon svg-icon-3x svg-icon-white d-block my-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <polygon points="0 0 24 0 24 24 0 24" />
-                                                <path
-                                                    d="M18,16 C18,19.3137085 15.3137085,22 12,22 C8.6862915,22 6,19.3137085 6,16 C6,13.7791529 7.20659589,11.8401214 9,10.8026932 L9,5 C9,3.34314575 10.3431458,2 12,2 C13.6568542,2 15,3.34314575 15,5 L15,10.8026932 C16.7934041,11.8401214 18,13.7791529 18,16 Z M12,4 C11.4477153,4 11,4.44771525 11,5 L11,10 C11,10.5522847 11.4477153,11 12,11 C12.5522847,11 13,10.5522847 13,10 L13,5 C13,4.44771525 12.5522847,4 12,4 Z"
-                                                    fill="#000000" fill-rule="nonzero" />
-                                            </g>
-                                        </svg>
+                            </button>
+                            <button onclick="soilTemp()" class="col bg-warning px-6 py-8 rounded-xl mr-7 mb-7"
+                                style="text-decoration: none; border: none;">
+                                <div class="d-flex align-items-center">
+                                    <span class="svg-icon svg-icon-3x svg-icon-white mr-4">
+                                        <span class="svg-icon svg-icon-white svg-icon-2x">
+                                            <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo13\dist/../src/media/svg/icons\Text\Filter.svg-->
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <path
+                                                        d="M18,16 C18,19.3137085 15.3137085,22 12,22 C8.6862915,22 6,19.3137085 6,16 C6,13.7791529 7.20659589,11.8401214 9,10.8026932 L9,5 C9,3.34314575 10.3431458,2 12,2 C13.6568542,2 15,3.34314575 15,5 L15,10.8026932 C16.7934041,11.8401214 18,13.7791529 18,16 Z M12,4 C11.4477153,4 11,4.44771525 11,5 L11,10 C11,10.5522847 11.4477153,11 12,11 C12.5522847,11 13,10.5522847 13,10 L13,5 C13,4.44771525 12.5522847,4 12,4 Z"
+                                                        fill="#000000" fill-rule="nonzero" />
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
                                     </span>
-                                    <p class="text-white font-weight-bold font-size-h6 mt-2">SOIL TEMP</p>
+                                    <span class="text-white font-weight-bold font-size-h6">SOIL TYPE</span>
                                 </div>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -282,31 +374,142 @@
     @livewireScripts
 
     <script>
-        var geojson = <?php echo json_encode($geojson); ?>;
+        var polygonCoords = [];
+        var params = [];
 
-        // initialize map and set its center and zoom level
-        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 18);
+        var map = L.map('mapid').setView([12.668945714230706, 123.88067528173328], 16);
 
         // add tile layer to map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
             maxZoom: 18,
             tileSize: 512,
             zoomOffset: -1
         }).addTo(map);
 
-        L.geoJSON(geojson, {
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng);
-            },
-            onEachFeature: function(feature, layer) {
-                var popupContent = "<p>Land Type: " + feature.properties.land_type + "</p>" +
-                    "<p>Soil Type: " + feature.properties.soil_type + "</p>" +
-                    "<p>Soil Moisture: " + feature.properties.soil_moisture + "</p>" +
-                    "<p>Soil Temperature: " + feature.properties.soil_temperature + "</p>" +
-                    "<p>Soil PH: " + feature.properties.soil_ph + "</p>";
-                layer.bindPopup(popupContent);
-            }
-        }).addTo(map);
+        var baseMaps = {
+            "Street View": L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19,
+                tileSize: 512,
+                zoomOffset: -1
+            }),
+            "Satellite View": L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                attribution: 'Map data &copy; <a href="https://www.google.com/maps">Google Maps</a>',
+                maxZoom: 18,
+                tileSize: 512,
+                zoomOffset: -1
+            })
+        };
+        L.control.layers(baseMaps).addTo(map);
+
+        function landType() {
+            // Remove existing layers
+            map.eachLayer(function(layer) {
+                if (layer.options.color) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // Add new layers
+            @foreach ($params as $param)
+                var polygon = @json($param->polygon);
+                var landType = '{{ $param->land_type }}';
+                var color;
+                if (landType === 'Highland') {
+                    color = 'red';
+                } else if (landType === 'Lowland') {
+                    color = 'blue';
+                } else {
+                    color = 'yellow';
+                }
+                var layer = L.geoJSON(JSON.parse(polygon), {
+                    style: {
+                        color: color
+                    }
+                }).addTo(map);
+                layer.bindPopup(
+                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                );
+                layer.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+            @endforeach
+        }
+
+        function soilPh() {
+            // Remove existing layers
+            map.eachLayer(function(layer) {
+                if (layer.options.color) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // Add new layers
+            @foreach ($params as $param)
+                var polygon = @json($param->polygon);
+                var soilPh = '{{ $param->soil_ph }}';
+                var color;
+                if (soilPh > 6.8) {
+                    color = 'red';
+                } else if (soilPh > 5.6) {
+                    color = 'blue';
+                } else if (soilPh > 5.1) {
+                    color = 'green';
+                } else if (soilPh > 4.6) {
+                    color = 'yellow';
+                } else {
+                    color = 'orange';
+                }
+
+                var layer = L.geoJSON(JSON.parse(polygon), {
+                    style: {
+                        color: color
+                    }
+                }).addTo(map);
+                layer.bindPopup(
+                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                );
+                layer.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+            @endforeach
+        }
+
+
+
+
+        function soilMoisture() {
+            @foreach ($params as $param)
+                var polygon = @json($param->polygon);
+                var soilMoisture = '{{ $param->soil_moisture }}';
+                var color;
+                if (soilMoisture === '<15% = Very Dry') {
+                    color = 'blue';
+                } else if (soilMoisture === '15-20% = Dry') {
+                    color = 'green';
+                } else if (soilMoisture === '20-25% = Moist') {
+                    color: 'yellow';
+                }
+                else if (soilMoisture === '25-30% = Wet') {
+                    color: 'orange';
+                }
+                else {
+                    color: 'red';
+                }
+
+                var layer = L.geoJSON(JSON.parse(polygon), {
+                    style: {
+                        color: color
+                    }
+                }).addTo(map);
+                layer.bindPopup(
+                    '<div class="text-left"><strong>Location:</strong> {{ $param->location }}<br><strong>Land Type:</strong> {{ $param->land_type }}<br><strong>Soil Type:</strong> {{ $param->soil_type }}<br><strong>Soil Temperature:</strong> {{ $param->soil_temperature }}&deg;C<br><strong>Soil PH:</strong> {{ $param->soil_ph }}</div>'
+                );
+                layer.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+            @endforeach
+        }
     </script>
 @endpush

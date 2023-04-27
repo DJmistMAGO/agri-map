@@ -15,6 +15,8 @@ class SoilParam extends Model
         'soil_temperature',
         'soil_moisture',
         'soil_ph',
+        'polygon',
+        'location',
     ];
 
     protected $casts = [
