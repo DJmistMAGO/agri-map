@@ -7,12 +7,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SoilParamController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicationController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [Controller::class, 'index'])->name('home');
     Route::get('/params', [Controller::class, 'params'])->name('params');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
+
+    Route::get('/publication', [PublicationController::class, 'pub'])->name('pub.index');
+    Route::get('/publication-view/{news}', [PublicationController::class, 'view'])->name('pub.view');
 });
 
 Route::middleware('auth')->group(function () {
