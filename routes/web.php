@@ -8,6 +8,8 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SoilParamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AgriGalleryController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/', [Controller::class, 'index'])->name('home');
@@ -16,8 +18,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
 
     Route::get('/publication', [PublicationController::class, 'pub'])->name('pub.index');
-    Route::get('/gallery', [PublicationController::class, 'gallery'])->name('pub.gallery');
     Route::get('/publication-view/{news}', [PublicationController::class, 'view'])->name('pub.view');
+
+    Route::get('/gal', [GalleryController::class, 'gallery'])->name('gal');
+
 
 });
 
@@ -44,4 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/announcement/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
     Route::put('/announcement/update/{announcement}', [AnnouncementController::class, 'update'])->name('announcement.update');
 
+    Route::get('/agri-gal', [AgriGalleryController::class, 'index'])->name('agrigal.index');
+    Route::get('/agri-gal/create', [AgriGalleryController::class, 'create'])->name('agrigal.create');
+    Route::post('/agri-gal/store', [AgriGalleryController::class, 'store'])->name('agrigal.store');
 });

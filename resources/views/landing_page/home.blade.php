@@ -58,7 +58,7 @@ Welcome to Agri-Map!
                 <div class="col-md-12">
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <div class="carousel-item active" >
                                 <img src="{{ asset('banner-img/farm1.webp') }}" class="" alt="...">
                             </div>
                             <div class="carousel-item">
@@ -313,7 +313,7 @@ Welcome to Agri-Map!
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <a href="{{ route('pub.gallery') }}" class="btn btn-success col-md-3 mt-5 text-center">View More</a>
+                    <a href="{{ route('gal') }}" class="btn btn-success col-md-3 mt-5 text-center">View More</a>
                 </div>
             </div>
         </div>

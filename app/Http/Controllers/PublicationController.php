@@ -21,8 +21,5 @@ class PublicationController extends Controller
         return view('landing_page.pub-view', compact('news'));
     }
 
-    public function gallery()
-    {
-        return view('landing_page.gallery');
-    }
+   
 }
