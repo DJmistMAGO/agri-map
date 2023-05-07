@@ -23,7 +23,13 @@
                         <span class="menu-text text-nowrap">Soil Parameter</span>
                     </a>
                 </li>
-
+                <li class="menu-item my-4 {{ !request()->routeIs('news.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('news.index') }}" class="menu-link">
+                        <i class="menu-icon far fa-newspaper"></i>
+                        <span class="menu-text text-nowrap">News</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
