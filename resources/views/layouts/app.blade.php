@@ -102,22 +102,30 @@
         }
 
         #team img{
-            height: 180px;
-            width: 180px;
+            height: 190px;
+            width: 190px;
             border-radius: 50%;
         }
 
         #team .box{
-            background-color: #dfed1f;
+
             padding: 20px;
             border-radius: 20px;
+            margin: 8px;
+
+
         }
 
+        #date_time{
+            position: absolute;
+            top: 200px;
+            left: 100px;
+        }
     </style>
 
     <style>
         #weather_news .card {
-            background: #000000d8;
+            background: #2fc11f;
             color: white;
             padding: 2em;
             border-radius: 30px;
@@ -139,7 +147,7 @@
             height: 44px;
             width: 44px;
             outline: none;
-            background: #7c7c7c2b;
+            background: #fffffff0;
             color: white;
             cursor: pointer;
             transition: 0.2s ease-in-out;
@@ -150,7 +158,7 @@
             outline: none;
             padding: 0.4em 1em;
             border-radius: 24px;
-            background: #7c7c7c2b;
+            background: #ffffff;
             color: white;
             font-family: inherit;
             font-size: 105%;
@@ -202,6 +210,10 @@
 
         #weather_news .search-bar:focus {
             border: white 1px solid;
+        }
+
+        #date_time #dateTime span{
+            font-size: 20px
         }
 
     </style>

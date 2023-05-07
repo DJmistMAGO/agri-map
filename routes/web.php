@@ -16,7 +16,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/store', [AuthController::class, 'validateUser'])->name('auth.store');
 
     Route::get('/publication', [PublicationController::class, 'pub'])->name('pub.index');
+    Route::get('/gallery', [PublicationController::class, 'gallery'])->name('pub.gallery');
     Route::get('/publication-view/{news}', [PublicationController::class, 'view'])->name('pub.view');
+
 });
 
 Route::middleware('auth')->group(function () {

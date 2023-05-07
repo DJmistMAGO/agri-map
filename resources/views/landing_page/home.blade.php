@@ -89,7 +89,7 @@ Welcome to Agri-Map!
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-md-6">
+            <div class="" id="date_time">
                     <div class="" data-aos="fade-right" data-aos-duration="1500"
                         style=" padding: 20px; height: 280px; /* From https://css.glass */
                     background: rgba(255, 255, 255, 0.24);
@@ -104,9 +104,10 @@ Welcome to Agri-Map!
                         </h2>
                         <h1 class="text-white">Digital Mapping System</h1>
                         <p class="h4 mb-3 text-white-50">For the Municipality of Bulan</p>
+                        <div id="dateTime"><span id="current-date"></span> | <span id="current-time"></span></div>
                         <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
                     </div>
-                </div> --}}
+                </div>
         </div>
     </section>
 
@@ -311,6 +312,9 @@ Welcome to Agri-Map!
                         </button>
                     </div>
                 </div>
+                <div class="row d-flex justify-content-center">
+                    <a href="{{ route('pub.gallery') }}" class="btn btn-success col-md-3 mt-5 text-center">View More</a>
+                </div>
             </div>
         </div>
     </section>
@@ -319,10 +323,10 @@ Welcome to Agri-Map!
         <div class="container">
             <h2 class="text-center text-uppercase mb-10 display-3" style="color: #4ee22d"><b>MEET OUR TEAM</b></h2>
             <div class="row">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <div class="box text-center">
+                <div class="col-md-12 d-flex justify-content-center flex-wrap">
+                    <div class="box text-center" style="background-color: #ebf37f;">
                         <div class="imgBx">
-                            <img src="{{ asset('team/MHARIAN.png') }}" alt="">
+                            <img src="{{ asset('team/MHARIAN.png') }}" alt="" style="border: solid 10px #FFEA00;">
                         </div>
                         <div class="content">
                             <p>
@@ -345,6 +349,119 @@ Welcome to Agri-Map!
                                 Teamwork and Leadership Skill<br>
                                 Multitasking Skill<br>
                                 Communicative Skill<br>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="box text-center" style="background-color: #ebf37f;">
+                        <div class="imgBx">
+                            <img src="{{ asset('team/JHENYL.jpg') }}" alt="" style="border: solid 10px #FFEA00;">
+                        </div>
+                        <div class="content">
+                            <p>
+                               <h5>PERSONAL INFORMATION<br></h5>
+                            <b>Jhenyl G. Luzuriaga<br></b>
+                                Age: 17 years-old<br>
+                                Birthdate: October 14, 2005<br>
+                                Religion: Roman Catholic<br>
+                                Civil Status: Single<br>
+                                Nationality: Filipino<br>
+
+                                <b>EDUCATION:<br> </b>
+                                Bulan North Central School-B 2012-2017<br>
+                                Bulan National High School (Junior High School) - 2017-2021<br>
+                                Bulan National High School (Junior High School) - 2021- present<br>
+
+                               <b> SKILLS AND INTERESTS:<br> </b>
+                                Problem Solving Skill<br>
+                                Coordination & Organizing Skills<br>
+                                Critical & Structured Thinking<br>
+                                Creativity<br>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="box text-center" style="background-color: #ebf37f;">
+                        <div class="imgBx">
+                            <img src="{{ asset('team/KRISHIA.jpg') }}" alt="" style="border: solid 10px #FFEA00;">
+                        </div>
+                        <div class="content">
+                            <p>
+                                <h5>PERSONAL INFORMATION<br> </h5>
+                                 <b>Krishia Mae G. Dasig<br></b>
+                                Age: 17 years-old<br>
+                                Birthdate: November 18, 2005<br>
+                                Religion: Roman Catholic<br>
+                                Civil Status: Single<br>
+                                Nationality: Filipino<br>
+
+                                <b>EDUCATION:<br> </b>
+                                Bulan South Central School - 2012-2017<br>
+                                Bulan National High School (Junior High School) - 2017-2021<br>
+                                Bulan National High School (Junior High School) - 2021- present<br>
+
+                                <b>SKILLS AND INTERESTS:<br> </b>
+                                Artistic skills<br>
+                                Creativity<br>
+                                Organizing skills<br>
+                                Problem solving skills<br>
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="box text-center" style="background-color: #ebf37f;">
+                        <div class="imgBx">
+                            <img src="{{ asset('team/SAMANTHA.JPG') }}" alt="" style="border: solid 10px #FFEA00;">
+                        </div>
+                        <div class="content">
+                            <p>
+                                <h5>PERSONAL INFORMATION<br> </h5>
+                                <b>Samantha Mae H. Lagahit<br></b>
+                                Age: 18 years-old<br>
+                                Birthdate: May 14, 2004<br>
+                                Religion: Roman Catholic<br>
+                                Civil Status: Single<br>
+                                Nationality: Filipino<br>
+
+                               <b> EDUCATION:<br> </b>
+                                Bulan South Central School - 2012-2017<br>
+                                Bulan National High School (Junior High School) - 2017-2021<br>
+                                Bulan National High School (Junior High School) - 2021- present<br>
+
+                                <b>SKILLS AND INTERESTS:<br> </b>
+                                Time Management Skill
+                                Problem Solving Skill<br>
+                                Critical Thinking Skill<br>
+                                Interpersonal Skill<br>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="box text-center" style="background-color: #ebf37f;">
+                        <div class="imgBx">
+                            <img src="{{ asset('team/JENSELLE.jpg') }}" alt="" style="border: solid 10px #FFEA00;">
+                        </div>
+                        <div class="content">
+                            <p>
+                           <h5>PERSONAL INFORMATION<br></h5>
+                                 <b> Jenselle G. Gratela<br></b>
+                                Age: 18 years-old<br>
+                                Birthdate: September 13, 2004<br>
+                                Religion: Roman Catholic<br>
+                                Civil Status: Single<br>
+                                Nationality: Filipino<br>
+
+                                <b>EDUCATION:<br> </b>
+                                Bulan South Central School - 2012-2017<br>
+                                Bulan National High School (Junior High School) - 2017-2021<br>
+                                Bulan National High School (Junior High School) - 2021- present<br>
+
+                                <b>SKILLS AND INTERESTS:<br> </b>
+                                Art Skills<br>
+                                Problem Solving Skills<br>
+                                Multitasking Skill<br>
+                                Creativity<br>
                             </p>
                         </div>
                     </div>
@@ -387,6 +504,23 @@ Welcome to Agri-Map!
 
 @push('scripts')
 @livewireScripts
+
+<script>
+    $(document).ready(function() {
+      function displayDateTime() {
+        var now = new Date();
+        var date = now.toDateString();
+        var time = now.toLocaleTimeString();
+
+        $('#current-date').text(date);
+        $('#current-time').text(time);
+      }
+
+      displayDateTime();
+      setInterval(displayDateTime, 1000);
+    });
+  </script>
+
 <script>
     let weather = {
         "apiKey": "64abc55e59789f117ea006b07717f6e9"
@@ -492,7 +626,7 @@ Welcome to Agri-Map!
 
         // Add new layers
         @foreach($params as $param)
-        var polygon = @json($param->polygon);
+        var polygon = @json($param -> polygon);
         var landType = '{{ $param->land_type }}';
         var color;
         if (landType === 'Highland') {
@@ -582,7 +716,7 @@ Welcome to Agri-Map!
 
         // Add new layers
         @foreach($params as $param)
-        var polygon = @json($param->polygon);
+        var polygon = @json($param -> polygon);
         var soilMoisture = '{{ $param->soil_moisture }}';
         var color;
         if (soilMoisture === '<15% = Very Dry') {
@@ -710,4 +844,6 @@ Welcome to Agri-Map!
     }
 
 </script>
+
+
 @endpush
