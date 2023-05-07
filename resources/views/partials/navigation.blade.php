@@ -30,6 +30,13 @@
                         <span class="menu-text text-nowrap">News</span>
                     </a>
                 </li>
+                <li class="menu-item my-4 {{ !request()->routeIs('announcement.*') ?: 'menu-item-active' }}"
+                    aria-haspopup="true">
+                    <a href="{{ route('announcement.index') }}" class="menu-link">
+                        <i class="menu-icon fas fa-bullhorn"></i>
+                        <span class="menu-text text-nowrap">Announcement</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

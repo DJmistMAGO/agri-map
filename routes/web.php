@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
@@ -30,6 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
     Route::get('/news/edit/{news}', [NewsController::class, 'edit'])->name('news.edit');
     Route::put('/news/update/{news}', [NewsController::class, 'update'])->name('news.update');
-    Route::get('/news/show/{news}', [NewsController::class, 'show'])->name('news.show');
-    Route::delete('/news/destroy/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+    Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement.index');
+    Route::get('/announcement/create', [AnnouncementController::class, 'create'])->name('announcement.create');
+    Route::post('/announcement/store', [AnnouncementController::class, 'store'])->name('announcement.store');
+    Route::get('/announcement/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('announcement.edit');
+    Route::put('/announcement/update/{announcement}', [AnnouncementController::class, 'update'])->name('announcement.update');
+
 });
