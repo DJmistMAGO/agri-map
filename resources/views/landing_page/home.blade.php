@@ -4,6 +4,8 @@
     Welcome to Agri-Map!
 @endsection
 
+
+
 @section('content')
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" data-spy="affix" data-offset-top="100" data-offset-bottom="100"
         id="navbar">
@@ -33,6 +35,9 @@
                         <a class="nav-link text-uppercase m-scroll-top" href="#soil">Map & Soil Parameters</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-uppercase m-scroll-top" href="#soil">Publication</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-uppercase m-scroll-top" href="#contact">Contact Us</a>
                     </li>
                     <li class="nav-item">
@@ -45,34 +50,63 @@
 
     <main>
         <section id="landingHome" class="" style="">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="" data-aos="fade-right" data-aos-duration="1500"
-                            style=" padding: 20px; height: 280px; /* From https://css.glass */
-                        background: rgba(255, 255, 255, 0.24);
-                        border-radius: 16px;
-                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                        backdrop-filter: blur(2.9px);
-                        -webkit-backdrop-filter: blur(2.9px);
-                        ">
-                            <h2 class="display-2 mb-3" style="font-weight: 900;">
-                                <span class="" style="color: #315000; text-stroke: 3px white;">AGRI</span><span
-                                    class="" style="color: #ffc400;">-Map</span>
-                            </h2>
-                            <h1 class="text-white">Digital Mapping System</h1>
-                            <p class="h4 mb-3 text-white-50">For the Municipality of Bulan</p>
-                            <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center d-flex justify-content-center" style="">
-                        <div class="d-flex justify-content-center align-items-center"
-                            style="background-color: #ffff; padding: 20px; border-radius: 50%; height: 400px; width: 400px;">
-                            <img data-aos="fade-left" data-aos-duration="1500" src="{{ asset('images/5.5.png') }}"
-                                alt="agrimap" class="" style="max-height: 350px">
-                        </div>
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="{{ asset('banner-img/farm1.webp') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/farm2.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/farm3.jpg') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item ">
+                                <img src="{{ asset('banner-img/farm4.jpg') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot1.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot2.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot3.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot4.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot5.png') }}" class="" alt="...">
+                              </div>
+                              <div class="carousel-item">
+                                <img src="{{ asset('banner-img/Screenshot6.png') }}" class="" alt="...">
+                              </div>
+                            </div>
+                          </div>
                     </div>
                 </div>
+                {{-- <div class="col-md-6">
+                    <div class="" data-aos="fade-right" data-aos-duration="1500"
+                        style=" padding: 20px; height: 280px; /* From https://css.glass */
+                    background: rgba(255, 255, 255, 0.24);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(2.9px);
+                    -webkit-backdrop-filter: blur(2.9px);
+                    ">
+                        <h2 class="display-2 mb-3" style="font-weight: 900;">
+                            <span class="" style="color: #315000; text-stroke: 3px white;">AGRI</span><span
+                                class="" style="color: #ffc400;">-Map</span>
+                        </h2>
+                        <h1 class="text-white">Digital Mapping System</h1>
+                        <p class="h4 mb-3 text-white-50">For the Municipality of Bulan</p>
+                        <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
+                    </div>
+                </div> --}}
             </div>
         </section>
 
@@ -123,15 +157,35 @@
             </div>
         </section>
 
-        <section id="weather" style="background-color: #062f58;">
+        <section id="weather" style="background-color: #d3eb23;">
             <div class="container">
                 <h2 class="text-center text-white text-uppercase mb-10 display-3"><b>Weather</b></h2>
                 <div class="row">
-                    <div class="col-md-12 text-center mt-3 d-flex justify-content-center">
+                    <div class="col-md-6 text-center mt-3 d-flex justify-content-center">
                         <div>
-                            <iframe width="1250" height="450"
+                            <iframe width="600" height="450"
                                 src="https://embed.windy.com/embed2.html?lat=12.668945714230706&lon=123.88067528173328&detailLat=12.668945714230706&detailLon=123.88067528173328&width=650&height=450&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1"
                                 frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-10" id="weather_news">
+                        <div class="card">
+                            <div class="search mb-3">
+                                <input type="text" placeholder="Search location" class="search-bar" />
+                                <span>
+                                <button class="btn btn-light rounded-pill">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                                </span>
+                            </div>
+                            <div class="weather-div loading text-center">
+                                <h2 class="city">Weather in Bulan</h2>
+                                <h1 class="temp">51&#8451;</h1>
+                                <img src="http://openweathermap.org/img/wn/02n.png" alt="" class="icon" style="height:150px; width: 150px;" />
+                                <div class="description">Cloudy</div>
+                            </div>
+                            <div class="humidity mt-4">Humidity: 60%</div>
+                            <div class="wind">Wind speed: 6.2 km/h</div>
                         </div>
                     </div>
                 </div>
@@ -271,6 +325,52 @@
 
 @push('scripts')
     @livewireScripts
+
+    <script>
+        let weather = {
+    "apiKey": "64abc55e59789f117ea006b07717f6e9",
+    fetchWeather: function( city){
+        fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q="
+            + city
+            +  "&units=metric&APPID="
+            + this.apiKey
+        ).then((response) => response.json())
+        .then((data) =>this.displayWeather(data));
+    },
+    displayWeather:function(data){
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".icon").src =
+        "http://openweathermap.org/img/wn/" + icon + ".png"
+        document.querySelector(".description").innerText = description;
+        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind speed: " + speed + "km/h";
+        document.querySelector(".weather-div").classList.remove("loading");
+        // document.body.style.backgroundImage = "url('https://source.unsplash.com/random/forecast/?" + description +"')"
+    },
+    search:function(){
+        this.fetchWeather(document.querySelector(".search-bar").value);
+    }
+};
+
+document.querySelector(".search button")
+.addEventListener("click", function () {
+    weather.search();
+})
+
+document.querySelector(".search-bar").addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+})
+
+weather.fetchWeather("Bulan, Sorsogon");
+    </script>
 
     <script>
         var polygonCoords = [];
