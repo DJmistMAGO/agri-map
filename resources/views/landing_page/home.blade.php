@@ -501,7 +501,7 @@ Welcome to Agri-Map!
     <section id="pub" class="" style="padding: 90px 90px;">
         <div class="container-fluid">
             <div class="row">
-                <h1 style="color: #0c9f18;">Publlication & Announcement</h1>
+                <h1 style="color: #0c9f18;">Publication & Announcement</h1>
             </div>
             <div class="row">
                 <div class="col-md-7">
@@ -551,8 +551,6 @@ Welcome to Agri-Map!
             </div>
         </div>
     </section>
-
-
 
     <section id="contact" class="" style="padding: 90px 90px;">
         <div class="container">
