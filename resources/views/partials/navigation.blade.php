@@ -37,13 +37,13 @@
                         <span class="menu-text text-nowrap">Announcement</span>
                     </a>
                 </li>
-                <li class="menu-item my-4 {{ !request()->routeIs('agrigal.*') ?: 'menu-item-active' }}"
+                {{-- <li class="menu-item my-4 {{ !request()->routeIs('agrigal.*') ?: 'menu-item-active' }}"
                     aria-haspopup="true">
                     <a href="{{ route('agrigal.index') }}" class="menu-link">
                         <i class="menu-icon fas fa-photo-video"></i>
                         <span class="menu-text text-nowrap">Gallery</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
