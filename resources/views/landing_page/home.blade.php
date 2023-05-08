@@ -32,14 +32,14 @@ Welcome to Agri-Map!
                     <a class="nav-link text-uppercase m-scroll-top" href="#soil">Map & Soil Parameters</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase m-scroll-top" href="{{ route('pub.index') }}">Publication</a>
+                    <a class="nav-link text-uppercase m-scroll-top" href="#pub">Publication</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-uppercase m-scroll-top" href="#gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-uppercase m-scroll-top" href="#team">Our Team</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link text-uppercase m-scroll-top" href="#contact">Contact Us</a>
                 </li>
@@ -53,7 +53,36 @@ Welcome to Agri-Map!
 
 <main>
     <section id="landingHome" class="" style="">
-        <div class="container-fluid p-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="" data-aos="fade-right" data-aos-duration="1500"
+                        style=" padding: 20px; height: 280px; /* From https://css.glass */
+                    background: rgba(255, 255, 255, 0.24);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    backdrop-filter: blur(2.9px);
+                    -webkit-backdrop-filter: blur(2.9px);
+                    ">
+                        <h2 class="display-2 mb-3" style="font-weight: 900;">
+                            <span class="" style="color: #315000; text-stroke: 3px white;">AGRI</span><span
+                                class="" style="color: #ffc400;">-Map</span>
+                        </h2>
+                        <h1 class="text-white">Digital Mapping System</h1>
+                        <p class="h4 mb-3 text-white-50">For the Municipality of Bulan</p>
+                        <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center d-flex justify-content-center" style="">
+                    <div class="d-flex justify-content-center align-items-center"
+                        style="background-color: #ffff; padding: 20px; border-radius: 50%; height: 400px; width: 400px;">
+                        <img data-aos="fade-up" data-aos-duration="1500" src="{{ asset('images/5.5.png') }}"
+                            alt="agrimap" class="" style="max-height: 350px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-md-12">
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -108,7 +137,7 @@ Welcome to Agri-Map!
                         <a href="#about" class="btn btn-primary btn-lg mt-3">Learn More</a>
                     </div>
                 </div>
-        </div>
+        </div> --}}
     </section>
 
     <section id="about" class="" style="padding: 90px 90px;">
@@ -155,16 +184,16 @@ Welcome to Agri-Map!
         </div>
     </section>
 
-    <section id="weather" style="background-color: #d3eb23; padding: 90px 90px;">
+    <section id="weather" style="background-color: #062f58; padding: 90px 90px;">
         <div class="container">
             <h2 class="text-center text-white text-uppercase mb-10 display-3"><b>Weather</b></h2>
             <div class="row">
-                <div class="col-md-6 text-center mt-3 d-flex justify-content-center">
+                <div class="col-md-12 text-center mt-3 d-flex justify-content-center">
                     <div>
-                        <iframe width="600" height="450" src="https://embed.windy.com/embed2.html?lat=12.668945714230706&lon=123.88067528173328&detailLat=12.668945714230706&detailLon=123.88067528173328&width=650&height=450&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+                        <iframe width="1000" height="450" src="https://embed.windy.com/embed2.html?lat=12.668945714230706&lon=123.88067528173328&detailLat=12.668945714230706&detailLon=123.88067528173328&width=650&height=450&zoom=11&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
                     </div>
                 </div>
-                <div class="col-md-6 pl-10" id="weather_news">
+                {{-- <div class="col-md-6 pl-10" id="weather_news">
                     <div class="card">
                         <div class="search mb-3">
                             <input type="text" placeholder="Search location" class="search-bar" />
@@ -183,7 +212,7 @@ Welcome to Agri-Map!
                         <div class="humidity mt-4">Humidity: 60%</div>
                         <div class="wind">Wind speed: 6.2 km/h</div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -285,7 +314,7 @@ Welcome to Agri-Map!
         </div>
     </section>
 
-    <section id="gallery" class="" style="padding: 90px 90px;">
+    {{-- <section id="gallery" class="" style="padding: 90px 90px;">
         <div class="container">
             <h2 class="text-center text-uppercase mb-10 display-3"><b>Gallery</b></h2>
             <div class="row">
@@ -317,9 +346,9 @@ Welcome to Agri-Map!
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section id="team" class="" style="padding: 90px 90px;">
+    {{-- <section id="team" class="" style="padding: 90px 90px;">
         <div class="container">
             <h2 class="text-center text-uppercase mb-10 display-3" style="color: #4ee22d"><b>MEET OUR TEAM</b></h2>
             <div class="row">
@@ -468,7 +497,62 @@ Welcome to Agri-Map!
                 </div>
             </div>
         </div>
+    </section> --}}
+    <section id="pub" class="" style="padding: 90px 90px;">
+        <div class="container-fluid">
+            <div class="row">
+                <h1 style="color: #0c9f18;">Publlication & Announcement</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row">
+                        @foreach ($news as $new)
+                        <div class="col-md-3 mt-2">
+                            <div class="card" >
+                                <img src="{{ asset('images/1683451894.png')}}" style="max-height: 150px;" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{ $new->title }}test</h5>
+                                  <p class="card-text">{{ substr_replace($new->content,"...",50) }} test</p>
+                                  <a href="{{ route('pub.view',$new->id) }}" class="btn btn-primary">Read More</a>
+                                </div>
+                              </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="row pagination">
+                        <div class="justify-content-center d-flex">
+                            {{ $news->links() }}
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <h2>Announcement</h2>
+                    </div>
+                        <table>
+                            @forelse ( $announcements as $ann )
+                            <tr>
+                                <td class="mb-1" style="padding: 5px; border-bottom: 1px solid; width: 250px">
+                                    <h5><b>{{ $ann->title }}</b></h5>
+                                    <p style="font-size: 12px;">{{ $ann->date->format('Fd,Y') }}</p>
+                                    <p>{{ $ann->content --}}</p>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="1" class="text-center">No Announcements</td>
+                            </tr>
+                            @endforelse
+                        </table>
+
+                </div>
+            </div>
+        </div>
     </section>
+
+
 
     <section id="contact" class="" style="padding: 90px 90px;">
         <div class="container">

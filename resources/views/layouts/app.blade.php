@@ -31,7 +31,7 @@
         }
 
         .navbar {
-            background-color: #16a849;
+            background-color: #062f58;
         }
 
         .navbar-brand {
@@ -63,6 +63,7 @@
         #soil,
         #contact,
         #gallery,
+        #pub
             {
             height: 100vh;
             padding: 90px 0p !important;
@@ -73,16 +74,20 @@
         }
 
         #landingHome {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(0, 0, 0, 0.6)), url({{ asset('images/1.jpg') }});
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        #landingHome img {
+        /* #landingHome img {
             height: 100vh;
             width: 100%;
-        }
+        } */
 
         #gallery img {
             width: 1000px;
@@ -96,7 +101,8 @@
             #contact,
             #weather,
             #soil,
-            #contact {
+            #contact,
+            #pub {
                 height: 40%;
             }
         }
