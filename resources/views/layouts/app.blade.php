@@ -74,7 +74,7 @@
         }
 
         #landingHome {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(0, 0, 0, 0.6)), url({{ asset('images/1.jpg') }});
+            background-image: url({{ asset('images/12.png') }});
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
